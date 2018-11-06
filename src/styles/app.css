@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 .tools div{
-    height: 40px;
+    height: auto;
     width: 200px;
     background: #7d51b0;
     cursor: pointer;
@@ -17,6 +17,7 @@
     align-items: center;
     color: #f0f0f0;
     margin: 5px;
+    padding: 15px 0;
    
 }
 .tools input{
