@@ -3,16 +3,18 @@ import {connect} from 'react-redux'
 import ToolsPanel from './ToolsPanel.js'
 import getWorld from '../../actions/getWorld'
 import setWorld from '../../actions/setWorld'
+import newWorld from '../../actions/newWorld'
 
 
 class ToolsPanelContainer extends React.Component {
     render() {
-        const {setWorld, getWorld, world} = this.props
+        const {newWorld, setWorld, getWorld, world} = this.props
         return (
             <ToolsPanel
                 name={world.user}
                 setWorld={setWorld}
                 getWorld={getWorld}
+                newWorld={newWorld}
             />
         )
     }
@@ -28,6 +30,7 @@ const mapDispatchToProps = dispatch => {
     return {
         getWorld: name => dispatch(getWorld(name)),
         setWorld: name => dispatch(setWorld(name)),
+        newWorld: name => dispatch(newWorld(name)),
     }
 }
 

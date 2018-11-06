@@ -16,6 +16,10 @@ class ToolsPanel extends React.Component {
         const name = e
         this.props.getWorld(name)
     }
+    newBtnClick = e => {
+        const name = e
+        this.props.newWorld(name)
+    }
     onChangeHandler = (e) => {
         this.setState({myValue: e.target.value})
     }
@@ -31,7 +35,7 @@ class ToolsPanel extends React.Component {
                 />
                 <div onClick={() => this.getBtnClick(this.state.myValue)}>Загрузить мир {this.state.myValue}</div>
                 <div onClick={() => this.setBtnClick(name)}>Сохранить мир {name}</div>
-                <div>Создать новый мир</div>
+                <div onClick={() => this.newBtnClick(this.state.myValue)}>Создать новый мир {this.state.myValue}</div>
             </div>
         );
     }

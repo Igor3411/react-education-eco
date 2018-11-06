@@ -1,6 +1,7 @@
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAIL = 'LOGIN_FAIL'
+export const NEW_SUCCESS = 'NEW_SUCCESS'
 export const SAVE_REQUEST = 'SAVE_REQUEST'
 export const SAVE_SUCCESS = 'SAVE_SUCCESS'
 export const SAVE_FAIL = 'SAVE_FAIL'
