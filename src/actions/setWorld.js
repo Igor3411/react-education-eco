@@ -8,7 +8,7 @@ export default function setWorld(name) {
         fetch(url, {
             method: 'post',
             headers: {
-                "Content-type": " charset=UTF-8"
+                "Content-type": "application/json; charset=UTF-8"
             },
             body: JSON.stringify({
                 user: name,
