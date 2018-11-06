@@ -2,12 +2,12 @@ import React from "react";
 
 
 class ToolsPanel extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         myValue: "",
-    //     };
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            myValue: "",
+        };
+    }
     setBtnClick = e => {
         const name = e
         this.props.setWorld(name)
@@ -29,7 +29,7 @@ class ToolsPanel extends React.Component {
                     onChange={this.onChangeHandler}
                     placeholder="Имя мира"
                 />
-                <div onClick={() => this.getBtnClick(name)}>Загрузить мир {name}</div>
+                <div onClick={() => this.getBtnClick(this.state.myValue)}>Загрузить мир {this.state.myValue}</div>
                 <div onClick={() => this.setBtnClick(name)}>Сохранить мир {name}</div>
                 <div>Создать новый мир</div>
             </div>

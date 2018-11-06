@@ -21,7 +21,6 @@ class Log extends React.PureComponent {
         return (
             <div className="log">
                 {this.renderTemplate()}
-                {/* {log.key} */}
             </div>
         )
     }
