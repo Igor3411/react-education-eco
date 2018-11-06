@@ -1,0 +1,43 @@
+#root{
+    font-family: "Arial";
+    font-size: 14px;
+}
+.tools{
+    display: flex;
+    flex-direction: column;
+}
+.tools div{
+    height: 40px;
+    width: 200px;
+    background: #7d51b0;
+    cursor: pointer;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #f0f0f0;
+    margin: 5px;
+   
+}
+.tools input{
+    height: 20px;
+    width: 180px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    margin: 5px;
+    padding: 10px;
+    outline: none;
+}
+.log{
+    border: 2px solid #cccccc;
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -210px;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: auto;
+    line-height: 7px;
+}

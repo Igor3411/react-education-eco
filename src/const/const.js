@@ -1,0 +1,8 @@
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAIL = 'LOGIN_FAIL'
+export const SAVE_REQUEST = 'SAVE_REQUEST'
+export const SAVE_SUCCESS = 'SAVE_SUCCESS'
+export const SAVE_FAIL = 'SAVE_FAIL'
+export const url = 'http://localhost:5000/world'
+export const getUrl = 'http://localhost:5000/world?name='
