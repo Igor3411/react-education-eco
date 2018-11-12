@@ -4,8 +4,8 @@ import React from "react";
 class Log extends React.PureComponent {
     renderTemplate = () => {
         const {log} = this.props
-        var arr = [];
-        for (var prop in log) {
+        let arr = [];
+        for (let prop in log) {
             arr.push(prop + ":" + log[prop]);
         }
         let i = 0;

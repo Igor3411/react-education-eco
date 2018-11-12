@@ -1,4 +1,4 @@
-import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, url} from '../const/const'
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, url} from '../../const/const'
 
 export default function setWorld(name) {
     return dispatch => {

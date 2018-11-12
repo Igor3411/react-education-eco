@@ -5,7 +5,7 @@ import "./styles/app.css";
 import {store} from "./store/configureStore";
 import App from './components/App';
 
-import serviceWorker from "./serviceWorker";
+
 
 
 
@@ -15,4 +15,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-serviceWorker();
+

@@ -1,4 +1,4 @@
-import {SAVE_REQUEST, SAVE_SUCCESS, SAVE_FAIL, getUrl} from '../const/const'
+import {SAVE_REQUEST, SAVE_SUCCESS, SAVE_FAIL, getUrl} from '../../const/const'
 
 export default function getWorld(name) {
     return dispatch => {

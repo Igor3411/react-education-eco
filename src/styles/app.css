@@ -1,10 +1,12 @@
 #root{
     font-family: "Arial";
     font-size: 14px;
+    box-sizing: border-box;
 }
 .tools{
     display: flex;
     flex-direction: column;
+    padding-top: 35px
 }
 .tools div{
     height: auto;
@@ -32,13 +34,183 @@
 .log{
     border: 2px solid #cccccc;
     height: 200px;
-    width: 400px;
+    width: 350px;
     position: fixed;
-    bottom: 0;
-    left: 50%;
-    margin-left: -210px;
+    bottom: 5px;
+    left: 10px;
     padding: 10px;
     border-radius: 10px;
     overflow: auto;
     line-height: 7px;
+}
+.window{
+    width: 500px;
+    height: 500px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -250px;
+}
+.window div{
+    width: 20%;
+    height: 20%;
+    outline: 1px solid #cccccc;
+    display: block
+}
+.window div.eat{
+    background: #8bcc0a url(../image/apple_tree_1466604002-e1466604051290.png);
+    background-size: 33%;
+}
+.window div.block{
+    background: #b5b5b5 url(../image/alpine-landscape-cone-top-rock-01b-al1-558853.png) no-repeat;
+    background-size: 100%;
+    background-position: 0 25px;
+}
+
+.animals{
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    display: grid;
+    margin-left: -250px;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.animals div.rabbit{
+    background: url(/static/media/small-cute-bunny-1-by-talekids.7fae492e.png) no-repeat;
+    background-size: 52%;
+    background-position: 24px 18px;
+}
+
+.animals div.place1{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.animals div.place2{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.animals div.place3{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.animals div.place4{
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.animals div.place5{
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.animals div.place6{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.animals div.place7{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.animals div.place8{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.animals div.place9{
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.animals div.place10{
+    grid-column: 5;
+    grid-row: 2;
+}
+
+.animals div.place11{
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.animals div.place12{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.animals div.place13{
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.animals div.place14{
+    grid-column: 4;
+    grid-row: 3;
+}
+
+.animals div.place15{
+    grid-column: 5;
+    grid-row: 3;
+}
+
+.animals div.place16{
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.animals div.place17{
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.animals div.place18{
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.animals div.place19{
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.animals div.place20{
+    grid-column: 5;
+    grid-row: 4;
+}
+
+.animals div.place21{
+    grid-column: 1;
+    grid-row: 5;
+}
+
+.animals div.place22{
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.animals div.place23{
+    grid-column: 3;
+    grid-row: 5;
+}
+
+.animals div.place24{
+    grid-column: 4;
+    grid-row: 5;
+}
+
+.animals div.place25{
+    grid-column: 5;
+    grid-row: 5;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ToolsPanel from './ToolsPanel.js'
-import getWorld from '../../actions/getWorld'
-import setWorld from '../../actions/setWorld'
-import newWorld from '../../actions/newWorld'
+import getWorld from '../../actions/server/getWorld'
+import setWorld from '../../actions/server/setWorld'
+import newWorld from '../../actions/server/newWorld'
 
 
 class ToolsPanelContainer extends React.Component {
