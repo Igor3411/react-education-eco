@@ -14,7 +14,6 @@ class Rabbit extends React.PureComponent {
         // this.setState({satiety: satiety})
     }
     step = () => {
-
         if (this.props.map.places) {
             if (this.props.map.place.eat) {
 
@@ -23,7 +22,7 @@ class Rabbit extends React.PureComponent {
             }
         } else {
             console.log(this.props.map.place.name);
-            // this.props.find("Rabbit", this.props.map.place.name);
+            this.props.find("Rabbit", this.props.map.place.name);
         }
     }
     componentDidUpdate() {
