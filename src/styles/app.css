@@ -86,7 +86,7 @@
 }
 
 .animals div.rabbit{
-    background: url(/static/media/small-cute-bunny-1-by-talekids.7fae492e.png) no-repeat;
+    background: url(../image//small-cute-bunny-1-by-talekids.png) no-repeat;
     background-size: 52%;
     background-position: 24px 18px;
 }
