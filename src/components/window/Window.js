@@ -2,40 +2,47 @@ import React from "react";
 
 
 class Window extends React.PureComponent {
-    renderTemplate = () => {
-        const {map} = this.props
-        let arr = [];
-        for (let prop in map) {
-            let type = "";
-            if (map[prop].eat) {
-                type += " eat";
-            }
-            if (map[prop].snow) {
-                type += " snow";
-            }
-            if (map[prop].block) {
-                type += " block";
-            }
-            if (map[prop].water) {
-                type += " water";
-            }
-            arr.push(type);
+  renderTemplate = () => {
+    const {map} = this.props
+    let arr = [];
+    for (let y = 0; y < map.length; y++) {
+      for (let x = 0; x < map[y].length; x++) {
+        let type = "";
+        const place = map[y][x] + "";
+        switch (place) {
+          case "0,0,0":
+            break;
+          case "1,0,0":
+            type = " block";
+            break;
+          case "0,1,0":
+            type = " eat";
+            break;
+          case [0, 0, 1]:
+            type = " water";
+            break;
+          default:
+            break;
         }
-        let i = 0;
-        return arr.map(entry => (
-            <div id={i} key={i++} className={entry}>
-            </div>
-        )
-        )
+        arr.push(type);
+      }
     }
-    render() {
+    let i = 0;
+    return arr.map(entry => (
+      <div id={i} key={i++} className={entry}>
+      </div>
+    )
+    )
+  }
 
-        return (
-            <div className="window">
-                {this.renderTemplate()}
-            </div>
-        )
-    }
+  render() {
+
+    return (
+      <div className="window">
+        {this.renderTemplate()}
+      </div>
+    )
+  }
 }
 
 export default Window;

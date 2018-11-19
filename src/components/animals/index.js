@@ -1,25 +1,45 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Rabbit from './Rabbit.js'
-import find from '../../actions/animals/find'
+import go from '../../actions/animals/go'
 
 const slice = (world, animal) => {
+    let y = animal.place.name[0];
+    let x = animal.place.name[1];
+    // return ({
+    //     center: world.world.map[y][x],
+    //     top: y <= 0 ? world.world.map[y - 1][x] : undefined,
+    //     right: world.world.map[y][x + 1],
+    //     bottom: y < world.world.map.length ? world.world.map[y + 1][x] : undefined,
+    //     left: world.world.map[y][x - 1],
+    // })
     return ({
-        top: world.world.map[animal.place - 5],
-        right: world.world.map[animal.place + 1],
-        bottom: world.world.map[animal.place + 1],
-        left: world.world.map[animal.place + 5],
+        center: world.world.map[y][x],
+        top: world.world.map[y - 1] ? world.world.map[y - 1][x] : undefined,
+        right: world.world.map[y][x + 1],
+        bottom: world.world.map[y + 1] ? world.world.map[y + 1][x] : undefined,
+        left: world.world.map[y][x - 1],
     })
 }
 
 class AnimalsContainer extends React.Component {
     render() {
-        const {animals, find, world} = this.props
+        const {animals, go, world} = this.props
         return (
             <div className="animals">
                 <Rabbit
-                    places={slice(world, animals.rabbit)}
-                    find={find}
+                    places={slice(world, animals.rabbit.information)}
+                    go={go}
+                    map={animals.rabbit.information}
+                />
+                <Rabbit
+                    places={slice(world, animals.rabbit.information)}
+                    go={go}
+                    map={animals.rabbit.information}
+                />
+                <Rabbit
+                    places={slice(world, animals.rabbit.information)}
+                    go={go}
                     map={animals.rabbit.information}
                 />
             </div>
@@ -38,7 +58,7 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        find: (name, place) => dispatch(find(name, place)),
+        go: (name, place, goto) => dispatch(go(name, place, goto)),
     }
 }
 

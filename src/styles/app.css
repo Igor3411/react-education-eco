@@ -56,8 +56,8 @@
     margin-left: -250px;
 }
 .window div{
-    width: 20%;
-    height: 20%;
+    width: 10%;
+    height: 10%;
     outline: 1px solid #cccccc;
     display: block
 }
@@ -81,14 +81,14 @@
     left: 50%;
     display: grid;
     margin-left: -250px;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 }
 
 .animals div.rabbit{
     background: url(../image//small-cute-bunny-1-by-talekids.png) no-repeat;
     background-size: 52%;
-    background-position: 24px 18px;
+    background-position: 14px 12px;
 }
 
 .animals div.place1{
