@@ -1,10 +1,24 @@
 import {GO_RABBIT} from '../const/const'
 
 const initialState = {
-    rabbit: {
+    rabbit_1: {
         information: {
             place: {
                 name: [2, 0]
+            }
+        }
+    },
+    rabbit_2: {
+        information: {
+            place: {
+                name: [3, 0]
+            }
+        }
+    },
+    rabbit_3: {
+        information: {
+            place: {
+                name: [4, 0]
             }
         }
     }
@@ -17,7 +31,7 @@ export default function animalsReducer(state = initialState, action) {
     switch (action.type) {
         case GO_RABBIT:
             return {
-                ...state, rabbit: {
+                ...state, [action.name]: {
                     information: {
                         ...state.information, place: {
                             name: action.goto

@@ -5,36 +5,32 @@ export default function go(name, place, goto) {
     return dispatch => {
         switch (goto) {
             case "top":
-                if (name === 'Rabbit') {
-                    dispatch({
-                        type: GO_RABBIT,
-                        goto: [place[0] - 1, place[1]],
-                    });
-                }
+                dispatch({
+                    type: GO_RABBIT,
+                    goto: [place[0] - 1, place[1]],
+                    name: name
+                });
                 break;
             case "bottom":
-                if (name === 'Rabbit') {
-                    dispatch({
-                        type: GO_RABBIT,
-                        goto: [place[0] + 1, place[1]],
-                    });
-                }
+                dispatch({
+                    type: GO_RABBIT,
+                    goto: [place[0] + 1, place[1]],
+                    name: name
+                });
                 break;
             case "left":
-                if (name === 'Rabbit') {
-                    dispatch({
-                        type: GO_RABBIT,
-                        goto: [place[0], place[1] - 1],
-                    });
-                }
+                dispatch({
+                    type: GO_RABBIT,
+                    goto: [place[0], place[1] - 1],
+                    name: name
+                });
                 break;
             case "right":
-                if (name === 'Rabbit') {
-                    dispatch({
-                        type: GO_RABBIT,
-                        goto: [place[0], place[1] + 1],
-                    });
-                }
+                dispatch({
+                    type: GO_RABBIT,
+                    goto: [place[0], place[1] + 1],
+                    name: name
+                });
                 break;
             default:
                 break;

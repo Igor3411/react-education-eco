@@ -25,54 +25,53 @@ class Rabbit extends React.Component {
     getRandomInRange(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    mind() {
+    walk() {
         const places = this.props.places;
         const place = this.props.map.place.name
 
         const go = this.props.go
-        // let to = this.getRandomInRange(1, 8)
-        let to = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+        let to = this.getRandomInRange(1, 8)
         switch (to) {
-            case 1 || 5:
-                if (places.top !== undefined) {
+            case 1:
+                if (places.top) {
                     if (places.top[0] !== 1) {
 
                         this.hunger();
-                        go('Rabbit', place, "top");
+                        go(this.props.nameAnimal, place, "top");
                     }
                 } else {
-                    this.mind();
+                    this.walk();
                 }
                 break;
-            case 2 || 6:
-                if (places.right !== undefined) {
+            case 2:
+                if (places.right) {
                     if (places.right[0] !== 1) {
 
                         this.hunger();
-                        go('Rabbit', place, "right");
+                        go(this.props.nameAnimal, place, "right");
                     }
                 } else {
-                    this.mind();
+                    this.walk();
                 }
                 break;
-            case 3 || 7:
-                if (places.bottom !== undefined) {
+            case 3:
+                if (places.bottom) {
                     if (places.bottom[0] !== 1) {
                         this.hunger();
-                        go('Rabbit', place, "bottom");
+                        go(this.props.nameAnimal, place, "bottom");
                     }
                 } else {
-                    this.mind();
+                    this.walk();
                 }
                 break;
-            case 4 || 8:
-                if (places.left !== undefined) {
+            case 4:
+                if (places.left) {
                     if (places.left[0] !== 1) {
                         this.hunger();
-                        go('Rabbit', place, "left");
+                        go(this.props.nameAnimal, place, "left");
                     }
                 } else {
-                    this.mind();
+                    this.walk();
                 }
                 break;
             default:
@@ -82,22 +81,51 @@ class Rabbit extends React.Component {
     }
     step = () => {
         const places = this.props.places;
-        if (places.center[1] === 0) {
-            this.mind();
-        } else {
-            if (this.state.satiety !== 5) {
-                this.eat();
-            } else {
-                this.mind();
+        const place = this.props.map.place.name
+        const go = this.props.go
+        if (this.state.satiety > -5) {
+            if (places.center[1] === 0) {
+                if (this.state.satiety <= 0) {
+                    console.log("Голод", places)
+                    if (places.top[1] === 1) {
+                        go(this.props.nameAnimal, place, "top");
+                    } else {
+                        if (places.bottom[1] === 1) {
+                            go(this.props.nameAnimal, place, "bottom");
+                        } else {
+                            if (places.left[1] === 1) {
+                                go(this.props.nameAnimal, place, "left");
+                            } else {
+                                if (places.right[1] === 1) {
+                                    go(this.props.nameAnimal, place, "right");
+                                } else {
+                                    this.walk();
+                                }
+                            }
+                        }
+
+                    }
+                } else {
+                    this.walk();
+                }
             }
+            else {
+                if (this.state.satiety !== 5) {
+                    this.eat();
+                } else {
+                    this.walk();
+                }
+            }
+
         }
+
         this.tickplus();
     }
     componentDidUpdate() {
-        setTimeout(() => {this.step()}, 1000)
+        setTimeout(() => {this.step()}, 500)
     }
     componentDidMount() {
-        setTimeout(() => {this.step()}, 1000)
+        setTimeout(() => {this.step()}, 500)
     }
     shouldComponentUpdate(nextProps, nextState) {
         if (this.state.tick !== nextState.tick) {
@@ -108,14 +136,18 @@ class Rabbit extends React.Component {
     }
     render() {
         const place = {
+            transform: [{scale: 1}],
             gridRow: (this.props.map.place.name[0] + 1),
-            gridColumn: (this.props.map.place.name[1] + 1)
+            gridColumn: (this.props.map.place.name[1] + 1),
         }
-        // console.log(this.props);
-        console.log(this.state.satiety);
-        const classAnimal = "rabbit satiety" + this.state.satiety
+        const satiety = this.state.satiety <= 0 ? 0 : this.state.satiety
+        const eat = {
+            height: 19 * satiety + 2 + "%",
+        }
+        const classAnimal = "rabbit e" + satiety + " death" + this.state.satiety + " " + this.props.nameAnimal
         return (
             <div className={classAnimal} style={place}>
+                <div className="eat" style={eat}></div>
             </div>
         )
     }
