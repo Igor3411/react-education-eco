@@ -111,9 +111,10 @@
 }
 
 .animals div.death-5{
-    background: url(../image/kisspng-portable-network-graphics-image-computer-file-clip-a-anime-amp-manga-amp-quot-thread-133238-9-5b7b502ed5d630.1002451815348081108759.jpg) no-repeat;
-    background-size: 106%;
-    background-position: 3px 8px;
+    background: none
+    /* background: url(../image/kisspng-portable-network-graphics-image-computer-file-clip-a-anime-amp-manga-amp-quot-thread-133238-9-5b7b502ed5d630.1002451815348081108759.jpg) no-repeat; */
+    /* background-size: 106%;
+    background-position: 3px 8px; */
 }
 
 .animals div:after{

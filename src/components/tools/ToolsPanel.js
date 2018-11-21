@@ -8,9 +8,11 @@ class ToolsPanel extends React.Component {
             myValue: "",
         };
     }
-    setBtnClick = e => {
-        const name = e
-        this.props.setWorld(name)
+    setBtnClick = (e) => {
+        const name = e.name
+        const events = e.events
+        const map = e.map
+        this.props.setWorld(name, events, map)
     }
     getBtnClick = e => {
         const name = e
@@ -25,6 +27,8 @@ class ToolsPanel extends React.Component {
     }
     render() {
         const {name} = this.props
+
+        // console.log(map)
         return (
             <div className="tools">
                 <input
@@ -34,7 +38,7 @@ class ToolsPanel extends React.Component {
                     placeholder="Имя мира"
                 />
                 <div onClick={() => this.getBtnClick(this.state.myValue)}>Загрузить мир {this.state.myValue}</div>
-                <div onClick={() => this.setBtnClick(name)}>Сохранить мир {name}</div>
+                <div onClick={() => this.setBtnClick(this.props)}>Сохранить мир {name}</div>
                 <div onClick={() => this.newBtnClick(this.state.myValue)}>Создать новый мир {this.state.myValue}</div>
             </div>
         );

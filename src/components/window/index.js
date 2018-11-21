@@ -1,13 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Window from './Window.js'
+import getEvent from '../../actions/server/getEvent'
 
 class WindowContainer extends React.Component {
     render() {
-        const {world} = this.props
+        const {world, getEvent} = this.props
         return (
             <Window
                 map={world.map}
+                getEvent={getEvent}
             />
         )
     }
@@ -19,6 +21,13 @@ const mapStateToProps = store => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        getEvent: () => dispatch(getEvent()),
+    }
+}
+
 export default connect(
     mapStateToProps,
+    mapDispatchToProps
 )(WindowContainer)

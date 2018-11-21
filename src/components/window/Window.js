@@ -9,16 +9,16 @@ class Window extends React.PureComponent {
       for (let x = 0; x < map[y].length; x++) {
         let type = "";
         const place = map[y][x] + "";
-        switch (place) {
-          case "0,0,0":
+        switch (true) {
+          case "0,0,0" === place:
             break;
-          case "1,0,0":
+          case "1,0,0" === place:
             type = " block";
             break;
-          case "0,1,0":
+          case "0,1,0" === place || "0,1,1" === place:
             type = " eat";
             break;
-          case [0, 0, 1]:
+          case "0,0,1":
             type = " water";
             break;
           default:
@@ -34,7 +34,18 @@ class Window extends React.PureComponent {
     )
     )
   }
-
+  getEvent = () => {
+    this.props.getEvent()
+  }
+  tick = () => {
+    setTimeout(() => {this.getEvent()}, 1000)
+  }
+  componentDidUpdate() {
+    this.tick();
+  }
+  componentDidMount() {
+    this.tick();
+  }
   render() {
 
     return (

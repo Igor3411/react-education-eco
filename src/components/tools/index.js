@@ -12,6 +12,8 @@ class ToolsPanelContainer extends React.Component {
         return (
             <ToolsPanel
                 name={world.user}
+                events={world.events}
+                map={world.map}
                 setWorld={setWorld}
                 getWorld={getWorld}
                 newWorld={newWorld}
@@ -29,7 +31,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
     return {
         getWorld: name => dispatch(getWorld(name)),
-        setWorld: name => dispatch(setWorld(name)),
+        setWorld: (name, map, events) => dispatch(setWorld(name, map, events)),
         newWorld: name => dispatch(newWorld(name)),
     }
 }

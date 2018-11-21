@@ -1,6 +1,7 @@
 import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, url} from '../../const/const'
 
-export default function setWorld(name) {
+export default function setWorld(name, events, map) {
+    console.log(name)
     return dispatch => {
         dispatch({
             type: LOGIN_REQUEST,
@@ -12,8 +13,8 @@ export default function setWorld(name) {
             },
             body: JSON.stringify({
                 user: name,
-                map: {1: 1},
-                events: [{1: 1}, {1: 2}]
+                map: map,
+                events: events,
             }),
         })
             .then(() =>

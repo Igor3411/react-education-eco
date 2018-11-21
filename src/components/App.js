@@ -3,7 +3,7 @@ import Tools from './tools'
 import Window from './window'
 import Log from './log'
 import Animals from './animals'
-// import Property from './property'
+import Property from './property'
 
 class App extends Component {
     render() {
@@ -13,7 +13,7 @@ class App extends Component {
                 <Log />
                 <Window />
                 <Animals />
-                {/* <Property /> */}
+                <Property />
             </div>
         )
     }
