@@ -4,14 +4,14 @@ const initialState = {
     rabbit_1: {
         information: {
             place: {
-                name: [9, 0]
+                name: [3, 9]
             }
         }
     },
     rabbit_2: {
         information: {
             place: {
-                name: [3, 9]
+                name: [3, 0]
             }
         }
     },
@@ -19,6 +19,13 @@ const initialState = {
         information: {
             place: {
                 name: [4, 0]
+            }
+        }
+    },
+    rabbit_4: {
+        information: {
+            place: {
+                name: [7, 9]
             }
         }
     }

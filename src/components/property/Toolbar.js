@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class Toolbar extends React.PureComponent {
+class Toolbar extends React.Component {
     renderTemplate = () => {
         const {log} = this.props
         let arr = [];
@@ -16,13 +16,21 @@ class Toolbar extends React.PureComponent {
         )
         )
     }
+    tick = () => {
+        const getTempTick = () => {setTimeout(() => {this.props.getTemp(); getTempTick()}, 2000)}
+        const getTimeTick = () => {setTimeout(() => {this.props.getTime(); getTimeTick()}, 30000)}
+        getTimeTick();
+        getTempTick();
+    }
+    componentDidMount() {
+        this.tick();
+    }
     render() {
-        console.log(this.props.events[0].temperature)
         const temp = (this.props.events[0].temperature) ? this.props.events[0].temperature : 'Нет данных о температуре'
         const time = (this.props.events[0].timeOfday) ? this.props.events[0].timeOfday : 'Нет данных о времени суток'
         return (
-            <div className="Toolbar">
-                <div className="temp">{temp}</div>
+            <div className="toolbar">
+                <div className="temp">Температура: {temp}</div>
                 <div className="time">{time}</div>
             </div>
         )

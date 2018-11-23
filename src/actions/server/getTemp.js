@@ -1,9 +1,9 @@
-import {EVENT_REQUEST, EVENT_SUCCESS, EVENT_FAIL, urlEvent} from '../../const/const'
+import {TEMP_REQUEST, TEMP_SUCCESS, TEMP_FAIL, urlEvent} from '../../const/const'
 
-export default function getEvent() {
+export default function getTEMP() {
     return dispatch => {
         dispatch({
-            type: EVENT_REQUEST,
+            type: TEMP_REQUEST,
         });
 
         fetch(urlEvent, {
@@ -18,13 +18,13 @@ export default function getEvent() {
             .then(response => response.json())
             .then((data) =>
                 dispatch({
-                    type: EVENT_SUCCESS,
+                    type: TEMP_SUCCESS,
                     payload: data,
                 })
             )
 
             .catch((error) => dispatch({
-                type: EVENT_FAIL,
+                type: TEMP_FAIL,
                 error: true,
                 payload: new Error(error),
             }))

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {TILE_ROCK, TILE_EAT, TILE_EMPTY} from '../../const/tiles'
 
 class Window extends React.PureComponent {
   renderTemplate = () => {
@@ -10,12 +10,12 @@ class Window extends React.PureComponent {
         let type = "";
         const place = map[y][x] + "";
         switch (true) {
-          case "0,0,0" === place:
+          case TILE_EMPTY === place:
             break;
-          case "1,0,0" === place:
+          case TILE_ROCK === place:
             type = " block";
             break;
-          case "0,1,0" === place || "0,1,1" === place:
+          case TILE_EAT === place:
             type = " eat";
             break;
           case "0,0,1":
@@ -34,18 +34,8 @@ class Window extends React.PureComponent {
     )
     )
   }
-  getEvent = () => {
-    this.props.getEvent()
-  }
-  tick = () => {
-    setTimeout(() => {this.getEvent()}, 1000)
-  }
-  componentDidUpdate() {
-    this.tick();
-  }
-  componentDidMount() {
-    this.tick();
-  }
+
+
   render() {
 
     return (

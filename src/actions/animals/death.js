@@ -9,7 +9,7 @@ export default function death(name, place, killer) {
                 place: place,
                 name: name,
                 killer: killer,
-                massage: name + " убит " + killer + " на " + place,
+                massage: " " + name + " убит " + killer + " на " + place,
             });
         } else {
             dispatch({
@@ -17,7 +17,7 @@ export default function death(name, place, killer) {
                 placeX: place[1],
                 placeY: place[0],
                 name: name,
-                massage: name + " умер на " + place[0] + ":" + place[1],
+                massage: " " + name + " умер на " + place[0] + ":" + place[1],
             });
         }
     }

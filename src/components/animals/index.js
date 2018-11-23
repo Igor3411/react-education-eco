@@ -15,6 +15,7 @@ const slice = (world, animal) => {
         right: world.world.map[y][x + 1] ? world.world.map[y][x + 1] : NaN,
         bottom: world.world.map[y + 1] ? world.world.map[y + 1][x] : NaN,
         left: world.world.map[y][x - 1] ? world.world.map[y][x - 1] : NaN,
+        animals: world.world.animalsLocation[y][x]
     })
 }
 
@@ -25,6 +26,7 @@ class AnimalsContainer extends React.Component {
             "rabbit_1",
             "rabbit_2",
             "rabbit_3",
+            "rabbit_4",
         ]
         const {animals, go, world, death} = this.props
         return (
@@ -49,6 +51,13 @@ class AnimalsContainer extends React.Component {
                     death={death}
                     map={animals.rabbit_3.information}
                     nameAnimal={items[2]}
+                />
+                <Rabbit
+                    places={slice(world, animals.rabbit_4.information)}
+                    go={go}
+                    death={death}
+                    map={animals.rabbit_4.information}
+                    nameAnimal={items[3]}
                 />
             </div>
         )
