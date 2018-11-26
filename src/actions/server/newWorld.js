@@ -5,8 +5,10 @@ export default function newWorld(name) {
 
         dispatch({
             type: NEW_SUCCESS,
-            payload: name,
-            massage: " Мир " + name + " создан",
+            payload: {
+                name,
+                massage: " Мир " + name + " создан",
+            }
         })
 
     }

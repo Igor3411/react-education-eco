@@ -1,5 +1,5 @@
 import React from "react";
-import {TILE_ROCK, TILE_EAT, TILE_EMPTY} from '../../const/tiles'
+import {TILE_ROCK, TILE_EAT, TILE_EMPTY, TILE_WATER} from '../../const/tiles'
 
 class Window extends React.PureComponent {
   renderTemplate = () => {
@@ -18,7 +18,7 @@ class Window extends React.PureComponent {
           case TILE_EAT === place:
             type = " eat";
             break;
-          case "0,0,1":
+          case TILE_WATER === place:
             type = " water";
             break;
           default:
@@ -27,9 +27,8 @@ class Window extends React.PureComponent {
         arr.push(type);
       }
     }
-    let i = 0;
-    return arr.map(entry => (
-      <div id={i} key={i++} className={entry}>
+    return arr.map((entry, i) => (
+      <div id={i} key={i} className={entry}>
       </div>
     )
     )

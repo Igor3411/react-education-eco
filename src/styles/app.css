@@ -78,6 +78,12 @@ body{
     background-position: 0 25px;
 }
 
+.window div.water{
+    background: #6697f1 url(../image/15593466.png) no-repeat;
+    background-size: 107%;
+    background-position: -4px 8px;
+}
+
 .animals{
     width: 700px;
     height: 700px;
@@ -87,14 +93,21 @@ body{
     left: 50%;
     display: grid;
     margin-left: -300px;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%)
 }
 
 .animals div.rabbit{
-    background: url(../image//small-cute-bunny-1-by-talekids.png) no-repeat;
+    background: url(../image/small-cute-bunny-1-by-talekids.png) no-repeat;
     background-size: 52%;
     background-position: 14px 12px;
+    position: relative;
+}
+
+.animals div.predator{
+    background: url(../image/predator_PNG4.png) no-repeat;
+    background-size: 70%;
+    background-position: 11px 11px;
     position: relative;
 }
 
@@ -112,11 +125,19 @@ body{
     background: red;
 }
 
-.animals div.death-5{
+.animals div.rabbit.death-5{
     background: none
 }
 
-.animals div.death-5 .animals_number{
+.animals div.predator.death-10{
+    background: none
+}
+
+.animals div.rabbit.death-5 .animals_number{
+    display: none;
+}
+
+.animals div.predator.death-10 .animals_number{
     display: none;
 }
 

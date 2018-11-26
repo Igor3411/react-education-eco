@@ -9,8 +9,7 @@ class Log extends React.PureComponent {
             var now = new Date(prop);
             arr.push(now.toLocaleTimeString() + ":" + log[prop]);
         }
-        let i = 0;
-        return arr.map(entry => (
+        return arr.map((entry, i) => (
             <p key={i++}>
                 {entry}
             </p>

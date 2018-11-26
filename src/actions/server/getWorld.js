@@ -13,8 +13,10 @@ export default function getWorld(name) {
             .then((data) =>
                 dispatch({
                     type: SAVE_SUCCESS,
-                    payload: data,
-                    massage: " Мир " + data.user + " загружен",
+                    payload: {
+                        data,
+                        massage: " Мир " + data.user + " загружен",
+                    }
                 })
             )
 

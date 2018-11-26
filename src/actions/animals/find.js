@@ -5,11 +5,13 @@ export default function find(name, place) {
         if (name === 'Rabbit') {
             dispatch({
                 type: FIND_RABBIT,
-                top: place - 5,
-                left: place + 1,
-                bottom: place - 5,
-                right: place - 1,
-                massage: name + " выполнил поиск на " + place,
+                payload: {
+                    top: place - 5,
+                    left: place + 1,
+                    bottom: place - 5,
+                    right: place - 1,
+                    massage: name + " выполнил поиск на " + place,
+                }
             });
         }
 

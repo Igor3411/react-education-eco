@@ -4,11 +4,11 @@ import findFood from './logic/findFood'
 import walk from './logic/walk'
 
 
-class Rabbit extends React.PureComponent {
+class Predator extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            satiety: 5,
+            satiety: 6,
             tick: 0,
         };
 
@@ -18,7 +18,7 @@ class Rabbit extends React.PureComponent {
         this.setState({satiety: satiety})
     }
     eat = () => {
-        const satiety = 5;
+        const satiety = 6;
         this.setState({satiety: satiety})
     }
     tickplus = () => {
@@ -33,15 +33,20 @@ class Rabbit extends React.PureComponent {
         const go = this.props.go
         const name = this.props.nameAnimal
         switch (true) {
-            case this.state.satiety <= -5:
+            case this.state.satiety <= -10:
                 this.props.death(name, place);
                 clearInterval(this.timerTick);
                 break;
+            case this.props.places.animals.length > 1:
+                console.log(1)
+                const prey = this.props.places.animals.filter(animal => animal !== name)
+                this.props.death(prey[0], place, name);
+            // eslint-disable-next-line no-fallthrough
             case places.center !== TILE_EAT && this.state.satiety <= 0:
                 findFood(places, place, go, name)
                 this.hunger();
                 break;
-            case this.state.satiety !== 5 && places.center === TILE_EAT:
+            case this.state.satiety !== 6 && places.center === TILE_EAT:
                 this.eat();
                 break;
             default:
@@ -65,9 +70,9 @@ class Rabbit extends React.PureComponent {
         }
         const satiety = this.state.satiety <= 0 ? 0 : this.state.satiety
         const eat = {
-            height: 19 * satiety + 2 + "%",
+            height: 16 * satiety + 2 + "%",
         }
-        const classAnimal = `rabbit e${satiety} death${this.state.satiety} ${this.props.nameAnimal}`
+        const classAnimal = `predator e${satiety} death${this.state.satiety} ${this.props.nameAnimal}`
         return (
             <div className={classAnimal} style={place}>
                 <div className="eat" style={eat}></div>
@@ -77,4 +82,4 @@ class Rabbit extends React.PureComponent {
     }
 }
 
-export default Rabbit;
+export default Predator;

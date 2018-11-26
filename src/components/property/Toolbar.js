@@ -1,29 +1,17 @@
 import React from "react";
 
 
-class Toolbar extends React.Component {
-    renderTemplate = () => {
-        const {log} = this.props
-        let arr = [];
-        for (let prop in log) {
-            arr.push(prop + ":" + log[prop]);
-        }
-        let i = 0;
-        return arr.map(entry => (
-            <p key={i++}>
-                {entry}
-            </p>
-        )
-        )
-    }
+class Toolbar extends React.PureComponent {
     tick = () => {
-        const getTempTick = () => {setTimeout(() => {this.props.getTemp(); getTempTick()}, 2000)}
-        const getTimeTick = () => {setTimeout(() => {this.props.getTime(); getTimeTick()}, 30000)}
-        getTimeTick();
-        getTempTick();
+        this.getTempTick = setInterval(() => {this.props.getTemp()}, 2000)
+        this.getTimeTick = setInterval(() => {this.props.getTime()}, 30000)
     }
     componentDidMount() {
         this.tick();
+    }
+    componentWillUnmount() {
+        clearInterval(this.getTempTick);
+        clearInterval(this.getTimeTick);
     }
     render() {
         const temp = (this.props.events[0].temperature) ? this.props.events[0].temperature : 'Нет данных о температуре'
