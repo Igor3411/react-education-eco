@@ -10,7 +10,7 @@ class Log extends React.PureComponent {
             arr.push(now.toLocaleTimeString() + ":" + log[prop]);
         }
         return arr.map((entry, i) => (
-            <p key={i++}>
+            <p key={`log_${i}`}>
                 {entry}
             </p>
         )
@@ -25,5 +25,5 @@ class Log extends React.PureComponent {
         )
     }
 }
-
+//proptypes
 export default Log;

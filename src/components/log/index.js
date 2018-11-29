@@ -1,26 +1,12 @@
-import React from 'react'
 import {connect} from 'react-redux'
 import Log from './Log.js'
 
-
-class LogContainer extends React.Component {
-    render() {
-        const {world} = this.props
-        return (
-            <Log
-                log={world.log}
-            />
-        )
-    }
-}
-
 const mapStateToProps = store => {
     return {
-        world: store.world,
+        log: store.world.log,
     }
 }
-
-
+//разобраться
 export default connect(
     mapStateToProps
-)(LogContainer)
+)(Log)

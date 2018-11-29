@@ -10,6 +10,7 @@ const initialState = {
     rabbit_2: {
         information: {
             place: [3, 0]
+            
         }
     },
     rabbit_3: {

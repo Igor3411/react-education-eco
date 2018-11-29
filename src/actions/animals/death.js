@@ -5,13 +5,13 @@ export default function death(name, place, killer) {
     return dispatch => {
         if (killer) {
             dispatch({
-                type: KILL_RABBIT,
+                type: KILL_RABBIT, //имя не важно , заменить на один
                 payload: {
-                    placeX: place[1],
+                    placeX: place[1], 
                     placeY: place[0],
                     name: name,
                     killer: killer,
-                    massage: " " + name + " убит " + killer + " на " + place,
+                    massage: " " + name + " убит " + killer + " на " + place[0] + ":" + place[1], //`...`
                 }
             });
         } else {

@@ -1,4 +1,5 @@
 import {KILL_RABBIT, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, SAVE_REQUEST, SAVE_SUCCESS, SAVE_FAIL, NEW_SUCCESS, FIND_RABBIT, DEATH_RABBIT, TEMP_SUCCESS, TIME_SUCCESS, GO_RABBIT} from '../const/const'
+// с новой строчки
 import {TILE_ROCK, TILE_EAT, TILE_EMPTY, TILE_WATER} from '../const/tiles'
 import pull from "lodash/pull"
 
@@ -114,7 +115,7 @@ export default function worldReducer(state = initialState, action) {
       return {
         ...state, world: {...state.world, events: {...state.world.events = [{...state.world.events[0], temperature: action.payload.temperature}]}}
       }
-    case TIME_SUCCESS:
+    case TIME_SUCCESS://неск строчек
       return {
         ...state, world: {...state.world, events: {...state.world.events = [{...state.world.events[0], timeOfday: action.payload.time}]}}
         , log: {[date + date.getMilliseconds()]: " Настал " + action.payload.time, ...state.log}

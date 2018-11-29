@@ -31,7 +31,7 @@ class Rabbit extends React.PureComponent {
         const places = this.props.places
         const place = this.props.map.place
         const go = this.props.go
-        const name = this.props.nameAnimal
+        const name = this.props.nameAnimal //деструкт
         switch (true) {
             case this.state.satiety <= -5:
                 this.props.death(name, place);

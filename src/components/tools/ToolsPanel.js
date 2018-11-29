@@ -25,9 +25,10 @@ class ToolsPanel extends React.Component {
     onChangeHandler = (e) => {
         this.setState({myValue: e.target.value})
     }
+    handleLoadBtn = () => this.getBtnClick(this.state.myValue)
     render() {
         const {name} = this.props
-
+//так же везде
         // console.log(map)
         return (
             <div className="tools">
@@ -37,7 +38,7 @@ class ToolsPanel extends React.Component {
                     onChange={this.onChangeHandler}
                     placeholder="Имя мира"
                 />
-                <div onClick={() => this.getBtnClick(this.state.myValue)}>Загрузить мир {this.state.myValue}</div>
+                <div onClick={this.handleLoadBtn}>Загрузить мир {this.state.myValue}</div> 
                 <div onClick={() => this.setBtnClick(this.props)}>Сохранить мир {name}</div>
                 <div onClick={() => this.newBtnClick(this.state.myValue)}>Создать новый мир {this.state.myValue}</div>
             </div>

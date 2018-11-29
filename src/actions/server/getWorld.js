@@ -6,7 +6,7 @@ export default function getWorld(name) {
             type: SAVE_REQUEST,
         });
 
-        fetch(getUrl + name + "", {
+        fetch(getUrl + name + "", { //призывать из web
             method: 'get'
         })
             .then(response => response.json())
