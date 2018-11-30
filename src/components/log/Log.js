@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from 'prop-types'
 
 class Log extends React.PureComponent {
     renderTemplate = () => {
@@ -25,5 +25,7 @@ class Log extends React.PureComponent {
         )
     }
 }
-//proptypes
+Log.propTypes = {
+    log: PropTypes.object.isRequired,
+}
 export default Log;

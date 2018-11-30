@@ -1,4 +1,10 @@
-import {TEMP_REQUEST, TEMP_SUCCESS, TEMP_FAIL, urlEvent} from '../../const/const'
+import {
+    TEMP_REQUEST,
+    TEMP_SUCCESS,
+    TEMP_FAIL,
+} from '../../const/const'
+
+import getTempApi from '../../webAPI/getTempApi'
 
 export default function getTEMP() {
     return dispatch => {
@@ -6,16 +12,7 @@ export default function getTEMP() {
             type: TEMP_REQUEST,
         });
 
-        fetch(urlEvent, {
-            method: 'post',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify({
-                eventName: 'temperature'
-            }),
-        })
-            .then(response => response.json())
+        getTempApi().then(response => response.json())
             .then((data) =>
                 dispatch({
                     type: TEMP_SUCCESS,

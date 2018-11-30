@@ -1,15 +1,11 @@
-import {SAVE_REQUEST, SAVE_SUCCESS, SAVE_FAIL, getUrl} from '../../const/const'
-
+import {SAVE_REQUEST, SAVE_SUCCESS, SAVE_FAIL} from '../../const/const'
+import getWorldApi from '../../webAPI/getWorldApi'
 export default function getWorld(name) {
     return dispatch => {
         dispatch({
             type: SAVE_REQUEST,
         });
-
-        fetch(getUrl + name + "", { //призывать из web
-            method: 'get'
-        })
-            .then(response => response.json())
+        getWorldApi(name).then(response => response.json())
             .then((data) =>
                 dispatch({
                     type: SAVE_SUCCESS,

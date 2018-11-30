@@ -6,7 +6,7 @@ const mapStateToProps = store => {
         log: store.world.log,
     }
 }
-//разобраться
+
 export default connect(
     mapStateToProps
 )(Log)

@@ -1,5 +1,6 @@
 import React from "react";
 import {TILE_ROCK, TILE_EAT, TILE_EMPTY, TILE_WATER} from '../../const/tiles'
+import PropTypes from 'prop-types'
 
 class Window extends React.PureComponent {
   renderTemplate = () => {
@@ -43,6 +44,10 @@ class Window extends React.PureComponent {
       </div>
     )
   }
+}
+
+Window.propTypes = {
+  map: PropTypes.array.isRequired,
 }
 
 export default Window;

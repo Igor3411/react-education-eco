@@ -1,12 +1,11 @@
-import {GO_RABBIT} from '../../const/const'
+import {GO} from '../../const/const'
 
 export default function go(name, place, goto) {
-    // console.log(place)
     return dispatch => {
         switch (goto) {
             case "top":
                 dispatch({
-                    type: GO_RABBIT,
+                    type: GO,
                     payload: {
                         goto: [place[0] - 1, place[1]],
                         gotoX: place[1],
@@ -20,7 +19,7 @@ export default function go(name, place, goto) {
                 break;
             case "bottom":
                 dispatch({
-                    type: GO_RABBIT,
+                    type: GO,
                     payload: {
                         goto: [place[0] + 1, place[1]],
                         gotoX: place[1],
@@ -33,7 +32,7 @@ export default function go(name, place, goto) {
                 break;
             case "left":
                 dispatch({
-                    type: GO_RABBIT,
+                    type: GO,
                     payload: {
                         goto: [place[0], place[1] - 1],
                         gotoX: place[1] - 1,
@@ -47,7 +46,7 @@ export default function go(name, place, goto) {
                 break;
             case "right":
                 dispatch({
-                    type: GO_RABBIT,
+                    type: GO,
                     payload: {
                         goto: [place[0], place[1] + 1],
                         gotoX: place[1] + 1,

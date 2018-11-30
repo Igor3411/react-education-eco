@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 
 export default class Toolbar extends React.PureComponent {
@@ -24,4 +25,8 @@ export default class Toolbar extends React.PureComponent {
         )
     }
 }
-//proptypes
+
+Toolbar.propTypes = {
+    getTemp: PropTypes.func.isRequired,
+    getTime: PropTypes.func.isRequired,
+}

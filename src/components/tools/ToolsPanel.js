@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from 'prop-types'
 
 class ToolsPanel extends React.Component {
     constructor(props) {
@@ -9,9 +9,7 @@ class ToolsPanel extends React.Component {
         };
     }
     setBtnClick = (e) => {
-        const name = e.name
-        const events = e.events
-        const map = e.map
+        const {name, events, map} = e
         this.props.setWorld(name, events, map)
     }
     getBtnClick = e => {
@@ -28,8 +26,6 @@ class ToolsPanel extends React.Component {
     handleLoadBtn = () => this.getBtnClick(this.state.myValue)
     render() {
         const {name} = this.props
-//так же везде
-        // console.log(map)
         return (
             <div className="tools">
                 <input
@@ -38,12 +34,19 @@ class ToolsPanel extends React.Component {
                     onChange={this.onChangeHandler}
                     placeholder="Имя мира"
                 />
-                <div onClick={this.handleLoadBtn}>Загрузить мир {this.state.myValue}</div> 
+                <div onClick={this.handleLoadBtn}>Загрузить мир {this.state.myValue}</div>
                 <div onClick={() => this.setBtnClick(this.props)}>Сохранить мир {name}</div>
                 <div onClick={() => this.newBtnClick(this.state.myValue)}>Создать новый мир {this.state.myValue}</div>
             </div>
         );
     }
+}
+
+ToolsPanel.propTypes = {
+    map: PropTypes.array.isRequired,
+    setWorld: PropTypes.func.isRequired,
+    getWorld: PropTypes.func.isRequired,
+    newWorld: PropTypes.func.isRequired,
 }
 
 export default ToolsPanel;

@@ -6,7 +6,13 @@ export const SAVE_REQUEST = 'SAVE_REQUEST'
 export const SAVE_SUCCESS = 'SAVE_SUCCESS'
 export const SAVE_FAIL = 'SAVE_FAIL'
 export const FIND_RABBIT = 'FIND_RABBIT'
-export const GO_RABBIT = 'GO_RABBIT'
+export const GO = 'GO'
+export const EAT_LIST = {
+    rab: 5,
+    pre: 6,
+}
+export const STARVATION = 'STARVATION'
+export const EATING = 'EATING'
 export const DEATH_RABBIT = 'DEATH_RABBIT'
 export const KILL_RABBIT = 'KILL_RABBIT'
 export const TEMP_REQUEST = 'TEMP_REQUEST'

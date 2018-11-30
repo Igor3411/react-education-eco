@@ -4,6 +4,8 @@ import Rabbit from './Rabbit.js'
 import Predator from './Predator.js'
 import go from '../../actions/animals/go'
 import death from '../../actions/animals/death'
+import eat from '../../actions/animals/eat'
+import starvation from '../../actions/animals/starvation'
 
 
 
@@ -30,43 +32,53 @@ class AnimalsContainer extends React.Component {
             "rabbit_4",
             "predator_1"
         ]
-        const {animals, go, world, death} = this.props
+        const {animals, go, world, death, eat, starvation} = this.props
         return (
             <div className="animals">
                 <Rabbit
                     places={slice(world, animals.rabbit_1.information)}
                     go={go}
+                    eat={eat}
+                    starvation={starvation}
                     death={death}
-                    map={animals.rabbit_1.information}
-                    nameAnimal={items[0]}
+                    info={animals.rabbit_1.information}
+                    name={items[0]}
                 />
                 <Rabbit
                     places={slice(world, animals.rabbit_2.information)}
                     go={go}
+                    eat={eat}
+                    starvation={starvation}
                     death={death}
-                    map={animals.rabbit_2.information}
-                    nameAnimal={items[1]}
+                    info={animals.rabbit_2.information}
+                    name={items[1]}
                 />
                 <Rabbit
                     places={slice(world, animals.rabbit_3.information)}
                     go={go}
+                    eat={eat}
+                    starvation={starvation}
                     death={death}
-                    map={animals.rabbit_3.information}
-                    nameAnimal={items[2]}
+                    info={animals.rabbit_3.information}
+                    name={items[2]}
                 />
                 <Rabbit
                     places={slice(world, animals.rabbit_4.information)}
                     go={go}
+                    eat={eat}
+                    starvation={starvation}
                     death={death}
-                    map={animals.rabbit_4.information}
-                    nameAnimal={items[3]}
+                    info={animals.rabbit_4.information}
+                    name={items[3]}
                 />
                 <Predator
                     places={slice(world, animals.predator_1.information)}
                     go={go}
+                    eat={eat}
+                    starvation={starvation}
                     death={death}
-                    map={animals.predator_1.information}
-                    nameAnimal={items[4]}
+                    info={animals.predator_1.information}
+                    name={items[4]}
                 />
             </div>
         )
@@ -86,6 +98,8 @@ const mapDispatchToProps = dispatch => {
     return {
         go: (name, place, goto) => dispatch(go(name, place, goto)),
         death: (name, place, killer) => dispatch(death(name, place, killer)),
+        eat: (name) => dispatch(eat(name)),
+        starvation: (satiety, name) => dispatch(starvation(satiety, name)),
     }
 }
 
