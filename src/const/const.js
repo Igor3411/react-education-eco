@@ -21,6 +21,7 @@ export const TEMP_FAIL = 'TEMP_FAIL'
 export const TIME_REQUEST = 'TIME_REQUEST'
 export const TIME_SUCCESS = 'TIME_SUCCESS'
 export const TIME_FAIL = 'TIME_FAIL'
+
 export const url = 'http://localhost:5000/world'
 export const getUrl = 'http://localhost:5000/world?name='
 export const urlEvent = 'http://localhost:5000/event'

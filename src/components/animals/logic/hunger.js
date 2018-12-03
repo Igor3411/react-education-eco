@@ -2,4 +2,4 @@ const eat = (satiety, starvation, name) => {
     starvation(satiety, name);
 }
 
-export default eat;
+export default eat; //starve

@@ -7,28 +7,19 @@ class Rabbit extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            // satiety: 5,
             tick: 0,
         };
-
     }
-    // hunger = () => {
-    //     const satiety = this.state.satiety - 1;
-    //     this.setState({satiety: satiety})
-    // }
-    // eat = () => {
-    //     const satiety = 5;
-    //     this.setState({satiety: satiety})
-    // }
+
     tickplus = () => {
         const tick = this.state.tick + 1;
-        this.setState({tick: tick})
+        this.setState({tick})
     }
 
     componentDidMount() {
         this.timerTick = setInterval(() => {
             step(this.props.info.place, this.props, this.props.info.satiety, this.timerTick, this.props.death);
-            this.tickplus();
+            // this.tickplus();
         }, 1000)
     }
     componentWillUnmount() {

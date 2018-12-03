@@ -44,7 +44,8 @@ export default function animalsReducer(state = initialState, action) {
             return {
                 ...state, [action.payload.name]: {
                     information: {
-                        ...state[action.payload.name].information, place: action.payload.goto
+                        ...state[action.payload.name].information, 
+                        place: action.payload.goto
                     }
                 }
             }
@@ -53,7 +54,8 @@ export default function animalsReducer(state = initialState, action) {
             return {
                 ...state, [action.payload.name]: {
                     information: {
-                        ...state[action.payload.name].information, satiety: action.payload.satiety
+                        ...state[action.payload.name].information, 
+                        satiety: action.payload.satiety
                     }
                 }
             }
@@ -62,7 +64,8 @@ export default function animalsReducer(state = initialState, action) {
             return {
                 ...state, [action.payload.name]: {
                     information: {
-                        ...state[action.payload.name].information, satiety: action.payload.satiety
+                        ...state[action.payload.name].information, 
+                        satiety: action.payload.satiety
                     }
                 }
             }

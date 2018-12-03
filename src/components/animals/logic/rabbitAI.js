@@ -1,11 +1,11 @@
-import {TILE_EAT} from '../../../const/tiles'
+import { TILE_EAT } from '../../../const/tiles'
 import findFood from './findFood'
 import walk from './walk'
 import eating from './eating'
 import hunger from './hunger'
 
-const step = (place, props, satiety, timerTick) => {
-    const {places, go, name, death, starvation, eat} = props
+const step = (place, props, satiety, timerTick) => { //объект в объект
+    const { places, go, name, death, starvation, eat } = props
     switch (true) {
         case satiety <= -5:
             death(name, place);

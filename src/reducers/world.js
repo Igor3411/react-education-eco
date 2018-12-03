@@ -12,9 +12,9 @@ import {
   TIME_SUCCESS,
   GO
 } from '../const/const'
-import {TILE_EAT} from '../const/tiles'
+import { TILE_EAT } from '../const/tiles'
 import pull from "lodash/pull"
-import {MAP_STANDART, MAP_ANIMALS} from "../const/maps"
+import { MAP_STANDART, MAP_ANIMALS } from "../const/maps"
 
 const date = new Date();
 
@@ -39,28 +39,28 @@ export default function worldReducer(state = initialState, action) {
   const date = new Date();
   switch (action.type) {
     case LOGIN_REQUEST:
-      return {...state, isFetching: true, error: ''}
+      return { ...state, isFetching: true, error: '' }
 
     case LOGIN_SUCCESS:
-      return {...state, isFetching: false, log: {[date + date.getMilliseconds()]: action.massage, ...state.log}}
+      return { ...state, isFetching: false, log: { [date + date.getMilliseconds()]: action.massage, ...state.log } }
 
     case LOGIN_FAIL:
-      return {...state, isFetching: false, error: action.payload.message}
+      return { ...state, isFetching: false, error: action.payload.message }
 
     case SAVE_REQUEST:
-      return {...state, isFetching: true, error: ''}
+      return { ...state, isFetching: true, error: '' }
 
     case SAVE_SUCCESS:
-      return {...state, isFetching: false, world: {...state.world, user: action.payload.data.user, map: action.payload.data.map, events: action.payload.data.events}, log: {[date + date.getMilliseconds()]: action.payload.massage, ...state.log}}
+      return { ...state, isFetching: false, world: { ...state.world, user: action.payload.data.user, map: action.payload.data.map, events: action.payload.data.events }, log: { [date + date.getMilliseconds()]: action.payload.massage, ...state.log } }
 
     case SAVE_FAIL:
-      return {...state, isFetching: false, error: action.payload.message, log: {[date + date.getMilliseconds()]: " Неверное имя мира"}, ...state.log}
+      return { ...state, isFetching: false, error: action.payload.message, log: { [date + date.getMilliseconds()]: " Неверное имя мира" }, ...state.log }
 
     case NEW_SUCCESS:
-      return {...state, isFetching: false, world: {...state.world, user: action.payload.name}, log: {[date + date.getMilliseconds()]: action.payload.massage, ...state.log}}
+      return { ...state, isFetching: false, world: { ...state.world, user: action.payload.name }, log: { [date + date.getMilliseconds()]: action.payload.massage, ...state.log } }
 
     case FIND_RABBIT:
-      return {...state, log: {[date + date.getMilliseconds()]: action.payload.massage, ...state.log}}
+      return { ...state, log: { [date + date.getMilliseconds()]: action.payload.massage, ...state.log } }
 
     case GO:
       let newanimalsLocation = [...state.animalsLocation];
