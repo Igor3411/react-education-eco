@@ -1,175 +1,174 @@
-body{
-    background: #f1f1f1
+body {
+  background: #f1f1f1;
 }
-#root{
-    font-family: "Arial";
-    font-size: 14px;
-    box-sizing: border-box;
-
+#root {
+  font-family: "Arial";
+  font-size: 14px;
+  box-sizing: border-box;
 }
-.tools{
-    display: flex;
-    flex-direction: column;
-    padding-top: 35px;
-    padding-left: 55px;
+.tools {
+  display: flex;
+  flex-direction: column;
+  padding-top: 35px;
+  padding-left: 55px;
 }
-.tools div{
-    height: auto;
-    width: 200px;
-    background: #7d51b0;
-    cursor: pointer;
-    border-radius: 10px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    color: #f0f0f0;
-    margin: 5px;
-    padding: 15px 0;
-   
+.tools div {
+  height: auto;
+  width: 200px;
+  background: #7d51b0;
+  cursor: pointer;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: #f0f0f0;
+  margin: 5px;
+  padding: 15px 0;
 }
-.tools input{
-    height: 20px;
-    width: 180px;
-    border-radius: 10px;
-    border: 1px solid #cccccc;
-    margin: 5px;
-    padding: 10px;
-    outline: none;
+.tools input {
+  height: 20px;
+  width: 180px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  margin: 5px;
+  padding: 10px;
+  outline: none;
 }
-.log{
-    border: 2px solid #cccccc;
-    background: #e9e9e9;
-    height: 150px;
-    width: 300px;
-    position: fixed;
-    top: 580px;
-    left: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    overflow: auto;
-    line-height: 7px;
+.log {
+  border: 2px solid #cccccc;
+  background: #e9e9e9;
+  height: 150px;
+  width: 300px;
+  position: fixed;
+  top: 580px;
+  left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: auto;
+  line-height: 7px;
 }
-.window{
-    width: 700px;
-    height: 700px;
-    border: 2px solid #cccccc;
-    border-radius: 5px;
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -300px;
+.window {
+  width: 700px;
+  height: 700px;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -300px;
+  background: #93c394;
 }
-.window div{
-    width: 10%;
-    height: 10%;
-    outline: 1px solid #cccccc;
-    display: block
+.window div {
+  width: 10%;
+  height: 10%;
+  outline: 0.1px solid #cccccc5b;
+  display: block;
 }
-.window div.eat{
-    background: #8bcc0a url(../image/apple_tree_1466604002-e1466604051290.png);
-    background-size: 33%;
-}
-
-.window div.block{
-    background: #b5b5b5 url(../image/alpine-landscape-cone-top-rock-01b-al1-558853.png) no-repeat;
-    background-size: 100%;
-    background-position: 0 25px;
+.window div.eat {
+  background: #8bcc0a url(../image/apple_tree_1466604002-e1466604051290.png);
+  background-size: 33%;
 }
 
-.window div.water{
-    background: #6697f1 url(../image/15593466.png) no-repeat;
-    background-size: 107%;
-    background-position: -4px 8px;
+.window div.block {
+  background: #b5b5b5
+    url(../image/alpine-landscape-cone-top-rock-01b-al1-558853.png) no-repeat;
+  background-size: 100%;
+  background-position: 0 25px;
 }
 
-.animals{
-    width: 700px;
-    height: 700px;
-    border-radius: 5px;
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    display: grid;
-    margin-left: -300px;
-    grid-template-columns: repeat(10, 10%);
-    grid-template-rows: repeat(10, 10%)
+.window div.water {
+  background: #6697f1 url(../image/15593466.png) no-repeat;
+  background-size: 107%;
+  background-position: -4px 8px;
 }
 
-.animals div.rabbit{
-    background: url(../image/small-cute-bunny-1-by-talekids.png) no-repeat;
-    background-size: 52%;
-    background-position: 14px 12px;
-    position: relative;
+.window div.hill {
+  background: #93c394 url(../image/mountain-2024338_1280.png) no-repeat;
+  background-size: 107%;
+  background-position: -4px 8px;
 }
 
-.animals div.predator{
-    background: url(../image/predator_PNG4.png) no-repeat;
-    background-size: 70%;
-    background-position: 11px 11px;
-    position: relative;
+.animals {
+  width: 700px;
+  height: 700px;
+  border-radius: 5px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  display: grid;
+  margin-left: -300px;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
 }
 
-.animals div .eat{
-    width: 2px;
-    background: green;
-    border: 1px solid yellow;
-    border-radius: 2px;
-    position: absolute;
-    left: 3px;
-    bottom: -2px;
-    transition: 0.3s;
-}
-.animals div.e0 .eat, .animals div.e1 .eat{
-    background: red;
+.animals div.rabbit {
+  background: url(../image/small-cute-bunny-1-by-talekids.png) no-repeat;
+  background-size: 52%;
+  background-position: 14px 12px;
+  position: relative;
 }
 
-.animals div.rabbit.death-5{
-    background: none
+.animals div.predator {
+  background: url(../image/predator_PNG4.png) no-repeat;
+  background-size: 70%;
+  background-position: 11px 11px;
+  position: relative;
 }
 
-.animals div.predator.death-10{
-    background: none
+.animals div .eat {
+  width: 2px;
+  background: green;
+  border: 1px solid yellow;
+  border-radius: 2px;
+  position: absolute;
+  left: 3px;
+  bottom: -2px;
+  transition: 0.3s;
+}
+.animals div.e0 .eat,
+.animals div.e1 .eat {
+  background: red;
 }
 
-.animals div.rabbit.death-5 .animals_number{
-    display: none;
+.animals div.death-5 {
+  background: none;
 }
 
-.animals div.predator.death-10 .animals_number{
-    display: none;
+.animals div.death-5 .animals_number {
+  display: none;
 }
 
-.animals_number{
-    position: absolute;
-    right: 0;
-    top: 4px;
-    background: #b5b5b5;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #f0f0f0;
-    opacity: 0.7;
+.animals_number {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  background: #b5b5b5;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f0f0f0;
+  opacity: 0.7;
 }
 
-.toolbar{
-    position: fixed;
-    right: 45px;
-    top: 50px;
-    text-align: center;
-    height: 57px;
-    width: 150px;
-    border-radius: 10px;
-    border: 1px solid #cccccc;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    color: rgb(0, 13, 107);
-    font-size: 16px;
-    font-weight: bold;
-    padding: 20px 0;
+.toolbar {
+  position: fixed;
+  right: 45px;
+  top: 50px;
+  text-align: center;
+  height: 57px;
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: rgb(0, 13, 107);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px 0;
 }

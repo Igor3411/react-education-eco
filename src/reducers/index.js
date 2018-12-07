@@ -1,8 +1,10 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import worldReducer from "./world";
 import animalsReducer from "./animals";
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   world: worldReducer,
-  animals: animalsReducer,
+  animals: animalsReducer
 });
+
+export default rootReducer;

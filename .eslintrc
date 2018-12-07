@@ -1,15 +1,21 @@
 {
     "extends": [
+      "airbnb-base",
       "react-app",
       "prettier"
     ],
     "rules": {
+      "no-case-declarations": "off",
+      "no-plusplus": "off",
+      "import/no-extraneous-dependencies": "off",
       "jsx-quotes": [
         1,
         "prefer-double"
-      ]
+      ],
+      "linebreak-style": ["warn", "unix"]
     },
     "plugins": [
       "prettier"
     ]
+    
   }

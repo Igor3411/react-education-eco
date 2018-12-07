@@ -1,12 +1,8 @@
-import {connect} from 'react-redux'
-import Window from './Window.js'
+import { connect } from "react-redux";
+import Window from "./Window";
 
-const mapStateToProps = store => {
-    return {
-        map: store.world.world.map,
-    }
-}
+const mapStateToProps = store => ({
+  map: store.world.world.map
+});
 
-export default connect(
-    mapStateToProps
-)(Window)
+export default connect(mapStateToProps)(Window);
