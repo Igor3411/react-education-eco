@@ -19,9 +19,21 @@ class Predator extends React.PureComponent {
       gridRow: this.props.info.place[0] + 1,
       gridColumn: this.props.info.place[1] + 1
     };
+    const angle = this.props.info.target[1]
+      ? (180 *
+          Math.atan(
+            (this.props.target[0] - this.props.info.place[0]) /
+              (this.props.target[1] - this.props.info.place[1])
+          )) /
+        3.14
+      : 0;
+
     const satiety = this.props.info.satiety <= 0 ? 0 : this.props.info.satiety;
+    console.log(this.props.target);
+    console.log(angle);
+    const lineTo = { transform: `rotate(${angle - 180}deg)` };
     const eat = {
-      height: `${8.2 * satiety + 2  }%`
+      height: `${8.2 * satiety + 2}%`
     };
     const classAnimal = `predator e${satiety} death${this.props.info.satiety} ${
       this.props.name
@@ -29,6 +41,9 @@ class Predator extends React.PureComponent {
     return (
       <div className={classAnimal} style={place}>
         <div className="eat" style={eat} />
+        <div className="line" style={lineTo}>
+          --->{" "}
+        </div>
         <div className="animals_number">
           {this.props.places.animals.length
             ? this.props.places.animals.length

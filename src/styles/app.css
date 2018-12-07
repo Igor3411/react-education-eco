@@ -66,6 +66,9 @@ body {
   outline: 0.1px solid #cccccc5b;
   display: block;
 }
+.line {
+  width: 30px;
+}
 .window div.eat {
   background: #8bcc0a url(../image/apple_tree_1466604002-e1466604051290.png);
   background-size: 33%;

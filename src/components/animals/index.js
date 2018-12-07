@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React from "react";
 import { connect } from "react-redux";
 import Rabbit from "./Rabbit";
@@ -6,6 +7,7 @@ import go from "../../actions/animals/go";
 import death from "../../actions/animals/death";
 import eat from "../../actions/animals/eat";
 import starvation from "../../actions/animals/starvation";
+import setTarget from "../../actions/animals/setTarget";
 
 const slice = (world, animal) => {
   const y = animal.place[0];
@@ -20,6 +22,8 @@ const slice = (world, animal) => {
   };
 };
 
+const slicePredator = (targetName, animals) => targetName ? animals[targetName].information.place : false;
+
 class AnimalsContainer extends React.Component {
   render() {
     const items = [
@@ -29,8 +33,16 @@ class AnimalsContainer extends React.Component {
       "rabbit_4",
       "predator_1"
     ];
-    // eslint-disable-next-line no-shadow
-    const { animals, go, world, death, eat, starvation } = this.props;
+
+    const {
+      animals,
+      go,
+      world,
+      death,
+      eat,
+      starvation,
+      setTarget
+    } = this.props;
     return (
       <div className="animals">
         <Predator
@@ -39,8 +51,10 @@ class AnimalsContainer extends React.Component {
           eat={eat}
           starvation={starvation}
           death={death}
+          setTarget={setTarget}
           info={animals.predator_1.information}
           name={items[4]}
+          target={slicePredator(animals.predator_1.information.target, animals)}
         />
         <Rabbit
           places={slice(world, animals.rabbit_1.information)}
@@ -92,7 +106,8 @@ const mapDispatchToProps = dispatch => ({
   go: (name, place, goto) => dispatch(go(name, place, goto)),
   death: (name, place, killer) => dispatch(death(name, place, killer)),
   eat: name => dispatch(eat(name)),
-  starvation: (satiety, name) => dispatch(starvation(satiety, name))
+  starvation: (satiety, name) => dispatch(starvation(satiety, name)),
+  setTarget: name => dispatch(setTarget(name))
 });
 
 export default connect(

@@ -1,4 +1,11 @@
-import { GO, EATING, STARVATION, DEATH, EAT_LIST } from "../const/const";
+import {
+  GO,
+  EATING,
+  STARVATION,
+  DEATH,
+  EAT_LIST,
+  SET_TARGET
+} from "../const/const";
 
 const initialState = {
   rabbit_1: {
@@ -92,6 +99,25 @@ export default function animalsReducer(state = initialState, action) {
             }
           }
         })
+      };
+
+    case SET_TARGET:
+      const arrtargets = [];
+      // eslint-disable-next-line guard-for-in
+      for (const prop in state) {
+        if (state[prop].information.satiety > -4) {
+          arrtargets.push(prop);
+        }
+      }
+      const target = arrtargets[0] ? arrtargets[0] : false;
+      return {
+        ...state,
+        [action.payload]: {
+          information: {
+            ...state[action.payload].information,
+            target
+          }
+        }
       };
 
     default: {

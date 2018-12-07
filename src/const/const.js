@@ -7,6 +7,7 @@ export const SAVE_SUCCESS = "SAVE_SUCCESS";
 export const SAVE_FAIL = "SAVE_FAIL";
 export const FIND_RABBIT = "FIND_RABBIT";
 export const GO = "GO";
+export const SET_TARGET = "SET_TARGET";
 export const EAT_LIST = {
   rab: 5,
   pre: 12
