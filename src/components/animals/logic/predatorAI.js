@@ -13,12 +13,13 @@ const step = (
     death,
     starvation,
     setTarget,
-    info: { place, satiety, target }
+    target,
+    info: { place, satiety}
   },
   timerTick
 ) => {
   switch (true) {
-    case satiety <= -10:
+    case satiety <= -5:
       death(name, place);
       clearInterval(timerTick);
       break;
@@ -38,14 +39,6 @@ const step = (
       gotoTarget(places, place, go, name, target);
       hunger(satiety, starvation, name);
       break;
-    // eslint-disable-next-line no-fallthrough
-    // case places.center !== TILE_EAT && satiety <= 0:
-    //     findFood(places, place, go, name)
-    //     hunger(satiety, starvation, name);
-    //     break;
-    // case satiety !== 6 && places.center === TILE_EAT:
-    //     eating(eat, name);
-    //     break;
     default:
       walk(places, place, go, name);
       hunger(satiety, starvation, name);

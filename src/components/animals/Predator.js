@@ -29,9 +29,7 @@ class Predator extends React.PureComponent {
       : 0;
 
     const satiety = this.props.info.satiety <= 0 ? 0 : this.props.info.satiety;
-    console.log(this.props.target);
-    console.log(angle);
-    const lineTo = { transform: `rotate(${angle - 180}deg)` };
+    const lineTo = { transform: `rotate(${angle}deg)` };
     const eat = {
       height: `${8.2 * satiety + 2}%`
     };
@@ -42,7 +40,7 @@ class Predator extends React.PureComponent {
       <div className={classAnimal} style={place}>
         <div className="eat" style={eat} />
         <div className="line" style={lineTo}>
-          --->{" "}
+          {"<---"}
         </div>
         <div className="animals_number">
           {this.props.places.animals.length

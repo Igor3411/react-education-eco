@@ -24,16 +24,15 @@ const slice = (world, animal) => {
 
 const slicePredator = (targetName, animals) => targetName ? animals[targetName].information.place : false;
 
-class AnimalsContainer extends React.Component {
+const items = [
+  "rabbit_1",
+  "rabbit_2",
+  "rabbit_3",
+  "rabbit_4",
+  "predator_1"
+];
+class AnimalsContainer extends React.PureComponent {
   render() {
-    const items = [
-      "rabbit_1",
-      "rabbit_2",
-      "rabbit_3",
-      "rabbit_4",
-      "predator_1"
-    ];
-
     const {
       animals,
       go,

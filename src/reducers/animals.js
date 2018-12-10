@@ -12,7 +12,7 @@ const initialState = {
     information: {
       place: [5, 0],
       satiety: 5,
-      target: false
+      target: false //undefi
     }
   },
   rabbit_2: {
@@ -59,8 +59,7 @@ export default function animalsReducer(state = initialState, action) {
       };
 
     case STARVATION:
-      const satiety = { ...state };
-      const newsatiety = satiety[action.payload.name].information.satiety - 1;
+      const newsatiety = state[action.payload.name].information.satiety - 1;
       return {
         ...state,
         [action.payload.name]: {
@@ -95,20 +94,24 @@ export default function animalsReducer(state = initialState, action) {
           [action.payload.killer]: {
             information: {
               ...state[action.payload.killer].information,
-              satiety: EAT_LIST[action.payload.killer.slice(0, 3)]
+              satiety: EAT_LIST[action.payload.killer.slice(0, 3)],
+              target: false
             }
           }
         })
       };
 
     case SET_TARGET:
-      const arrtargets = [];
-      // eslint-disable-next-line guard-for-in
-      for (const prop in state) {
-        if (state[prop].information.satiety > -4) {
-          arrtargets.push(prop);
-        }
-      }
+      // const arrtargets = [];//вынести
+      // // eslint-disable-next-line guard-for-in
+      // for (const prop in state) {
+      //   if (state[prop].information.satiety > -4) {
+      //     arrtargets.push(prop);
+      //   }
+      // }
+      const arrtargets = Object.entries(state)
+        .filter( ([key, prop]) => prop.information.satiety > -4)
+        .map(([key]) => key)
       const target = arrtargets[0] ? arrtargets[0] : false;
       return {
         ...state,
