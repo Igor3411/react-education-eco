@@ -1,4 +1,4 @@
-import { TILE_EAT } from "../../../const/tiles";
+import { TILE_EAT } from "../../const/tiles";
 import walk from "./walk";
 
 const findFood = (places, place, go, name) => {

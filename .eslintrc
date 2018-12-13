@@ -8,6 +8,7 @@
       "no-case-declarations": "off",
       "no-plusplus": "off",
       "import/no-extraneous-dependencies": "off",
+      "consistent-return": "off",
       "jsx-quotes": [
         1,
         "prefer-double"

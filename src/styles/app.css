@@ -67,7 +67,10 @@ body {
   display: block;
 }
 .line {
-  width: 30px;
+  width: 31px;
+  height: 15px;
+  background: url(../image/firebog-sign-arrow-1-558146.png) no-repeat;
+  background-size: 70%;
 }
 .window div.eat {
   background: #8bcc0a url(../image/apple_tree_1466604002-e1466604051290.png);
@@ -141,6 +144,10 @@ body {
 
 .animals div.death-5 .animals_number {
   display: none;
+}
+
+.animals div.death-5 .line {
+  background: none;
 }
 
 .animals_number {

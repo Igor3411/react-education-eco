@@ -9,7 +9,7 @@ import eat from "../../actions/animals/eat";
 import starvation from "../../actions/animals/starvation";
 import setTarget from "../../actions/animals/setTarget";
 
-const slice = (world, animal) => {
+const infoPlace = (world, animal) => {
   const y = animal.place[0];
   const x = animal.place[1];
   return {
@@ -22,18 +22,61 @@ const slice = (world, animal) => {
   };
 };
 
-const slicePredator = (targetName, animals) => targetName ? animals[targetName].information.place : false;
+const targetPredator = (targetName, animals) =>
+  targetName ? animals[targetName].information.place : undefined;
 
-const items = [
-  "rabbit_1",
-  "rabbit_2",
-  "rabbit_3",
-  "rabbit_4",
-  "predator_1"
-];
-class AnimalsContainer extends React.PureComponent {
-  render() {
-    const {
+const newPredator = (
+  { animals, go, world, death, eat, starvation, setTarget },
+  name
+) => (
+  <Predator
+    places={infoPlace(world, animals[name].information)}
+    go={go}
+    eat={eat}
+    starvation={starvation}
+    death={death}
+    setTarget={setTarget}
+    info={animals[name].information}
+    name={name}
+    target={targetPredator(animals[name].information.target, animals)}
+    key={name}
+  />
+);
+const newRabbit = ({ animals, go, world, death, eat, starvation }, name) => (
+  <Rabbit
+    places={infoPlace(world, animals[name].information)}
+    go={go}
+    eat={eat}
+    starvation={starvation}
+    death={death}
+    info={animals[name].information}
+    name={name}
+    key={name}
+  />
+);
+const animalsListCreate = props =>
+  Object.entries(props.animals).map(([i]) => {
+    switch (true) {
+      case i.slice(0, 3) === "pre":
+        return newPredator(props, i);
+      case i.slice(0, 3) === "rab":
+        return newRabbit(props, i);
+      default:
+        return false;
+    }
+  });
+
+const AnimalsContainer = ({
+  animals,
+  go,
+  world,
+  death,
+  eat,
+  starvation,
+  setTarget
+}) => (
+  <div className="animals">
+    {animalsListCreate({
       animals,
       go,
       world,
@@ -41,60 +84,9 @@ class AnimalsContainer extends React.PureComponent {
       eat,
       starvation,
       setTarget
-    } = this.props;
-    return (
-      <div className="animals">
-        <Predator
-          places={slice(world, animals.predator_1.information)}
-          go={go}
-          eat={eat}
-          starvation={starvation}
-          death={death}
-          setTarget={setTarget}
-          info={animals.predator_1.information}
-          name={items[4]}
-          target={slicePredator(animals.predator_1.information.target, animals)}
-        />
-        <Rabbit
-          places={slice(world, animals.rabbit_1.information)}
-          go={go}
-          eat={eat}
-          starvation={starvation}
-          death={death}
-          info={animals.rabbit_1.information}
-          name={items[0]}
-        />
-        <Rabbit
-          places={slice(world, animals.rabbit_2.information)}
-          go={go}
-          eat={eat}
-          starvation={starvation}
-          death={death}
-          info={animals.rabbit_2.information}
-          name={items[1]}
-        />
-        <Rabbit
-          places={slice(world, animals.rabbit_3.information)}
-          go={go}
-          eat={eat}
-          starvation={starvation}
-          death={death}
-          info={animals.rabbit_3.information}
-          name={items[2]}
-        />
-        <Rabbit
-          places={slice(world, animals.rabbit_4.information)}
-          go={go}
-          eat={eat}
-          starvation={starvation}
-          death={death}
-          info={animals.rabbit_4.information}
-          name={items[3]}
-        />
-      </div>
-    );
-  }
-}
+    })}
+  </div>
+);
 
 const mapStateToProps = store => ({
   animals: store.animals,

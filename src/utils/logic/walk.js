@@ -1,4 +1,4 @@
-import { TILE_ROCK } from "../../../const/tiles";
+import { TILE_ROCK } from "../../const/tiles";
 
 const getRandomInRange = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;

@@ -4,46 +4,49 @@ import {
   STARVATION,
   DEATH,
   EAT_LIST,
-  SET_TARGET
+  SET_TARGET,
+  NEW_ANIMAL
 } from "../const/const";
 
 const initialState = {
   rabbit_1: {
     information: {
-      place: [5, 0],
+      place: [3, 9],
       satiety: 5,
-      target: false //undefi
+      target: undefined
     }
   },
   rabbit_2: {
     information: {
       place: [3, 0],
       satiety: 5,
-      target: false
+      target: undefined
     }
   },
   rabbit_3: {
     information: {
       place: [4, 0],
       satiety: 5,
-      target: false
+      target: undefined
     }
   },
   rabbit_4: {
     information: {
       place: [7, 9],
       satiety: 5,
-      target: false
+      target: undefined
     }
   },
   predator_1: {
     information: {
-      place: [4, 2],
+      place: [3, 0],
       satiety: 12,
-      target: false
+      target: undefined
     }
   }
 };
+
+let index = 5;
 
 export default function animalsReducer(state = initialState, action) {
   switch (action.type) {
@@ -95,30 +98,36 @@ export default function animalsReducer(state = initialState, action) {
             information: {
               ...state[action.payload.killer].information,
               satiety: EAT_LIST[action.payload.killer.slice(0, 3)],
-              target: false
+              target: undefined
             }
           }
         })
       };
 
     case SET_TARGET:
-      // const arrtargets = [];//вынести
-      // // eslint-disable-next-line guard-for-in
-      // for (const prop in state) {
-      //   if (state[prop].information.satiety > -4) {
-      //     arrtargets.push(prop);
-      //   }
-      // }
       const arrtargets = Object.entries(state)
-        .filter( ([key, prop]) => prop.information.satiety > -4)
-        .map(([key]) => key)
-      const target = arrtargets[0] ? arrtargets[0] : false;
+        .filter(([key, prop]) => prop.information.satiety > -4)
+        .map(([key]) => key);
+      const target = arrtargets[0] ? arrtargets[0] : undefined;
       return {
         ...state,
         [action.payload]: {
           information: {
             ...state[action.payload].information,
             target
+          }
+        }
+      };
+
+    case NEW_ANIMAL:
+      index++;
+      return {
+        ...state,
+        [action.payload.name + index]: {
+          information: {
+            place: action.payload.place,
+            satiety: EAT_LIST[action.payload.name.slice(0, 3)],
+            target: undefined
           }
         }
       };

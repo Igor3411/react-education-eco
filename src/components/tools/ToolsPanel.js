@@ -24,6 +24,11 @@ class ToolsPanel extends React.Component {
     this.props.newWorld(name);
   };
 
+  newAnBtnClick = e => {
+    const name = e;
+    this.props.newAnimal(name, [2, 0]);
+  };
+
   onChangeHandler = e => {
     this.setState({ myValue: e.target.value });
   };
@@ -48,6 +53,12 @@ class ToolsPanel extends React.Component {
         </div>
         <div onClick={() => this.newBtnClick(this.state.myValue)}>
           Создать новый мир {this.state.myValue}
+        </div>
+        <div onClick={() => this.newAnBtnClick("rabbit_")}>
+          Добавить кролика
+        </div>
+        <div onClick={() => this.newAnBtnClick("predator_")}>
+          Добавить хищника
         </div>
       </div>
     );

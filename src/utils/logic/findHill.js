@@ -1,4 +1,4 @@
-import { TILE_HILL } from "../../../const/tiles";
+import { TILE_HILL } from "../../const/tiles";
 import walk from "./walk";
 
 const findHill = (places, place, go, name) => {

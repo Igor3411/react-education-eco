@@ -12,8 +12,9 @@ import {
   TEMP_SUCCESS,
   TIME_SUCCESS,
   GO
+  // EATING
 } from "../const/const";
-import { TILE_EAT } from "../const/tiles";
+import { TILE_EAT, TILE_EMPTY } from "../const/tiles";
 import { MAP_STANDART, MAP_ANIMALS } from "../const/maps";
 
 let date = new Date();
@@ -92,6 +93,9 @@ export default function worldReducer(state = initialState, action) {
         }
       };
 
+    // case EATING:
+    //   return { ...state };
+
     case FIND_RABBIT:
       return {
         ...state,
@@ -122,7 +126,10 @@ export default function worldReducer(state = initialState, action) {
         newanimalsLocationD[action.payload.placeY][action.payload.placeX],
         action.payload.name
       );
-      newMap[action.payload.placeY][action.payload.placeX] = TILE_EAT;
+      newMap[action.payload.placeY][action.payload.placeX] =
+        newMap[action.payload.placeY][action.payload.placeX] === TILE_EMPTY
+          ? TILE_EAT
+          : newMap[action.payload.placeY][action.payload.placeX];
       return {
         ...state,
         world: {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import step from "./logic/rabbitAI";
+import step from "../../utils/logic/rabbitAI";
 
 class Rabbit extends React.PureComponent {
   componentDidMount() {
@@ -13,7 +13,7 @@ class Rabbit extends React.PureComponent {
     clearInterval(this.timerTick);
   }
 
-  render() {
+  propsForRender() {
     const place = {
       transform: [{ scale: 1 }],
       gridRow: this.props.info.place[0] + 1,
@@ -21,14 +21,19 @@ class Rabbit extends React.PureComponent {
     };
     const satiety = this.props.info.satiety <= 0 ? 0 : this.props.info.satiety;
     const eat = {
-      height: `${19 * satiety + 2  }%`
+      height: `${19 * satiety + 2}%`
     };
     const classAnimal = `rabbit e${satiety} death${this.props.info.satiety} ${
       this.props.nameAnimal
     }`;
+    return { place, eat, classAnimal };
+  }
+
+  render() {
+    const propsRender = this.propsForRender();
     return (
-      <div className={classAnimal} style={place}>
-        <div className="eat" style={eat} />
+      <div className={propsRender.classAnimal} style={propsRender.place}>
+        <div className="eat" style={propsRender.eat} />
         <div className="animals_number">
           {this.props.places.animals.length
             ? this.props.places.animals.length

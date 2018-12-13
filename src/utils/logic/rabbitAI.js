@@ -1,4 +1,4 @@
-import { TILE_EAT } from "../../../const/tiles";
+import { TILE_EAT } from "../../const/tiles";
 import findFood from "./findFood";
 import walk from "./walk";
 import starve from "./eating";

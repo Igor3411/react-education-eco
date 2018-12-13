@@ -1,38 +1,24 @@
-import React from "react";
 import { connect } from "react-redux";
 import ToolsPanel from "./ToolsPanel";
 import getWorld from "../../actions/server/getWorld";
 import setWorld from "../../actions/server/setWorld";
 import newWorld from "../../actions/server/newWorld";
-
-class ToolsPanelContainer extends React.Component {
-  render() {
-    // eslint-disable-next-line no-shadow
-    const { newWorld, setWorld, getWorld, world } = this.props;
-    return (
-      <ToolsPanel
-        name={world.user}
-        events={world.events}
-        map={world.map}
-        setWorld={setWorld}
-        getWorld={getWorld}
-        newWorld={newWorld}
-      />
-    );
-  }
-}
+import newAnimal from "../../actions/animals/newAnimal";
 
 const mapStateToProps = store => ({
-  world: store.world.world
+  name: store.world.world.user,
+  events: store.world.world.events,
+  map: store.world.world.map
 });
 
 const mapDispatchToProps = dispatch => ({
   getWorld: name => dispatch(getWorld(name)),
   setWorld: (name, map, events) => dispatch(setWorld(name, map, events)),
-  newWorld: name => dispatch(newWorld(name))
+  newWorld: name => dispatch(newWorld(name)),
+  newAnimal: (name, place) => dispatch(newAnimal(name, place))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ToolsPanelContainer);
+)(ToolsPanel);
