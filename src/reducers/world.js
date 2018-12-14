@@ -11,7 +11,8 @@ import {
   DEATH,
   TEMP_SUCCESS,
   TIME_SUCCESS,
-  GO
+  GO,
+  SET_MAP
   // EATING
 } from "../const/const";
 import { TILE_EAT, TILE_EMPTY } from "../const/tiles";
@@ -35,7 +36,8 @@ const initialState = {
   isFetching: false,
   log: {
     [date + date.getMilliseconds()]: " Запущено"
-  }
+  },
+  current: undefined
 };
 
 export default function worldReducer(state = initialState, action) {
@@ -96,6 +98,14 @@ export default function worldReducer(state = initialState, action) {
     // case EATING:
     //   return { ...state };
 
+    case SET_MAP:
+      return {
+        ...state,
+        world: {
+          ...state.world,
+          map: action.payload
+        }
+      };
     case FIND_RABBIT:
       return {
         ...state,

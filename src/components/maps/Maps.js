@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   TILE_ROCK,
   TILE_EAT,
@@ -7,10 +6,10 @@ import {
   TILE_WATER,
   TILE_HILL
 } from "../../const/tiles";
+import { MAP_TREES, MAP_STANDART, MAP_DESERT } from "../../const/maps";
 
-class Window extends React.PureComponent {
-  renderTemplate = () => {
-    const { map } = this.props;
+class Maps extends React.PureComponent {
+  renderTemplate = map => {
     const arr = [];
     for (let y = 0; y < map.length; y++) {
       for (let x = 0; x < map[y].length; x++) {
@@ -40,18 +39,35 @@ class Window extends React.PureComponent {
     return arr.map((entry, i) => <div id={i} key={i} className={entry} />);
   };
 
+  newBtnClick = e => {
+    const newMap = e;
+    this.props.setMap(newMap);
+  };
+
   render() {
     return (
-      <div className="window">
-        {this.renderTemplate()}
-        {/* <div className="current" /> */}
+      <div className="mapsList">
+        <div
+          className="window maps"
+          onClick={() => this.newBtnClick(MAP_TREES)}
+        >
+          {this.renderTemplate(MAP_TREES)}
+        </div>
+        <div
+          className="window maps"
+          onClick={() => this.newBtnClick(MAP_STANDART)}
+        >
+          {this.renderTemplate(MAP_STANDART)}
+        </div>
+        <div
+          className="window maps"
+          onClick={() => this.newBtnClick(MAP_DESERT)}
+        >
+          {this.renderTemplate(MAP_DESERT)}
+        </div>
       </div>
     );
   }
 }
 
-Window.propTypes = {
-  map: PropTypes.array.isRequired
-};
-
-export default Window;
+export default Maps;

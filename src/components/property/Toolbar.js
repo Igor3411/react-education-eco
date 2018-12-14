@@ -5,7 +5,7 @@ export default class Toolbar extends React.PureComponent {
   tick = () => {
     this.getTempTick = setInterval(() => {
       this.props.getTemp();
-    }, 2000);
+    }, 20000);
     this.getTimeTick = setInterval(() => {
       this.props.getTime();
     }, 30000);

@@ -10,9 +10,10 @@ export const GO = "GO";
 export const SET_TARGET = "SET_TARGET";
 export const EAT_LIST = {
   rab: 5,
-  pre: 12
+  pre: 15
 };
 export const STARVATION = "STARVATION";
+export const SET_MAP = "SET_MAP";
 export const EATING = "EATING";
 export const DEATH = "DEATH";
 export const KILL_RABBIT = "KILL_RABBIT";

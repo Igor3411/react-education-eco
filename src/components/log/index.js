@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Log from "./Log";
 
-const arrCreat = log => {
+const arrCreate = log => {
   const arr = [];
   // eslint-disable-next-line guard-for-in
   for (const prop in log) {
@@ -13,7 +13,7 @@ const arrCreat = log => {
 
 const mapStateToProps = store => ({
   log: store.world.log,
-  arr: arrCreat(store.world.log)
+  logList: arrCreate(store.world.log)
 });
 
 export default connect(mapStateToProps)(Log);

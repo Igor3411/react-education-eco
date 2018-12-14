@@ -15,7 +15,6 @@ class Rabbit extends React.PureComponent {
 
   propsForRender() {
     const place = {
-      transform: [{ scale: 1 }],
       gridRow: this.props.info.place[0] + 1,
       gridColumn: this.props.info.place[1] + 1
     };

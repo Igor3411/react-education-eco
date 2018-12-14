@@ -11,7 +11,7 @@ import {
 const initialState = {
   rabbit_1: {
     information: {
-      place: [3, 9],
+      place: [3, 1],
       satiety: 5,
       target: undefined
     }
@@ -32,14 +32,14 @@ const initialState = {
   },
   rabbit_4: {
     information: {
-      place: [7, 9],
+      place: [4, 1],
       satiety: 5,
       target: undefined
     }
   },
   predator_1: {
     information: {
-      place: [3, 0],
+      place: [3, 6],
       satiety: 12,
       target: undefined
     }
@@ -85,14 +85,10 @@ export default function animalsReducer(state = initialState, action) {
       };
 
     case DEATH:
+      const newstate = { ...state };
+      delete newstate[action.payload.name];
       return {
-        ...state,
-        [action.payload.name]: {
-          information: {
-            ...state[action.payload.name].information,
-            satiety: -5
-          }
-        },
+        ...newstate,
         ...(action.payload.killer && {
           [action.payload.killer]: {
             information: {

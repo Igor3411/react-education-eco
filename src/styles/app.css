@@ -12,7 +12,9 @@ body {
   padding-top: 35px;
   padding-left: 55px;
 }
-.tools div {
+.tools div,
+.tools a {
+  text-decoration: none;
   height: auto;
   width: 200px;
   background: #7d51b0;
@@ -66,6 +68,39 @@ body {
   outline: 0.1px solid #cccccc5b;
   display: block;
 }
+
+.window.maps {
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+
+  border: 3px solid gold;
+}
+
+.mapsList {
+  position: relative;
+  top: 400px;
+  left: 50%;
+  margin-left: -500px;
+  width: 1000px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mapsList .window.maps {
+  width: 320px;
+  height: 320px;
+  margin-left: 0px;
+  position: static;
+  border: none;
+  cursor: pointer;
+}
+
+.mapsList .window.maps:hover {
+  box-shadow: 0 0 1em 1em gold;
+}
+
 .line {
   width: 31px;
   height: 15px;

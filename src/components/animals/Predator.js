@@ -19,12 +19,13 @@ class Predator extends React.PureComponent {
       gridRow: this.props.info.place[0] + 1,
       gridColumn: this.props.info.place[1] + 1
     };
-    const tang = this.props.info.target
-      ? Math.atan(
-          (this.props.target[0] - this.props.info.place[0]) /
-            (this.props.target[1] - this.props.info.place[1])
-        )
-      : 0;
+    const tang =
+      this.props.target && this.props
+        ? Math.atan(
+            (this.props.target[0] - this.props.info.place[0]) /
+              (this.props.target[1] - this.props.info.place[1])
+          )
+        : 0;
     let angle = (180 * tang) / 3.14;
     if (this.props.target && this.props.target[1] >= this.props.info.place[1]) {
       angle = 180 + angle;
@@ -33,7 +34,7 @@ class Predator extends React.PureComponent {
     const satiety = this.props.info.satiety <= 0 ? 0 : this.props.info.satiety;
     const lineTo = { transform: `rotate(${180 + angle}deg)` };
     const eat = {
-      height: `${8.2 * satiety + 2}%`
+      height: `${6.6 * satiety + 2}%`
     };
     const classAnimal = `predator e${satiety} death${this.props.info.satiety} ${
       this.props.name

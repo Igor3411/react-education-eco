@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class ToolsPanel extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class ToolsPanel extends React.Component {
         <div onClick={() => this.newBtnClick(this.state.myValue)}>
           Создать новый мир {this.state.myValue}
         </div>
+        <Link to="/Maps">Выбрать карту</Link>
         <div onClick={() => this.newAnBtnClick("rabbit_")}>
           Добавить кролика
         </div>

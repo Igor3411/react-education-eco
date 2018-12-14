@@ -8,6 +8,7 @@ import death from "../../actions/animals/death";
 import eat from "../../actions/animals/eat";
 import starvation from "../../actions/animals/starvation";
 import setTarget from "../../actions/animals/setTarget";
+import newAnimal from "../../actions/animals/newAnimal";
 
 const infoPlace = (world, animal) => {
   const y = animal.place[0];
@@ -23,10 +24,12 @@ const infoPlace = (world, animal) => {
 };
 
 const targetPredator = (targetName, animals) =>
-  targetName ? animals[targetName].information.place : undefined;
+  targetName && animals[targetName]
+    ? animals[targetName].information.place
+    : undefined;
 
 const newPredator = (
-  { animals, go, world, death, eat, starvation, setTarget },
+  { animals, go, world, death, eat, starvation, setTarget, newAnimal },
   name
 ) => (
   <Predator
@@ -36,16 +39,21 @@ const newPredator = (
     starvation={starvation}
     death={death}
     setTarget={setTarget}
+    newAnimal={newAnimal}
     info={animals[name].information}
     name={name}
     target={targetPredator(animals[name].information.target, animals)}
     key={name}
   />
 );
-const newRabbit = ({ animals, go, world, death, eat, starvation }, name) => (
+const newRabbit = (
+  { animals, go, world, death, eat, starvation, newAnimal },
+  name
+) => (
   <Rabbit
     places={infoPlace(world, animals[name].information)}
     go={go}
+    newAnimal={newAnimal}
     eat={eat}
     starvation={starvation}
     death={death}
@@ -72,6 +80,7 @@ const AnimalsContainer = ({
   world,
   death,
   eat,
+  newAnimal,
   starvation,
   setTarget
 }) => (
@@ -79,6 +88,7 @@ const AnimalsContainer = ({
     {animalsListCreate({
       animals,
       go,
+      newAnimal,
       world,
       death,
       eat,
@@ -98,7 +108,8 @@ const mapDispatchToProps = dispatch => ({
   death: (name, place, killer) => dispatch(death(name, place, killer)),
   eat: name => dispatch(eat(name)),
   starvation: (satiety, name) => dispatch(starvation(satiety, name)),
-  setTarget: name => dispatch(setTarget(name))
+  setTarget: name => dispatch(setTarget(name)),
+  newAnimal: (name, place) => dispatch(newAnimal(name, place))
 });
 
 export default connect(

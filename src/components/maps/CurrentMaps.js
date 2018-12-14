@@ -8,7 +8,7 @@ import {
   TILE_HILL
 } from "../../const/tiles";
 
-class Window extends React.PureComponent {
+class CurrentMaps extends React.PureComponent {
   renderTemplate = () => {
     const { map } = this.props;
     const arr = [];
@@ -41,17 +41,12 @@ class Window extends React.PureComponent {
   };
 
   render() {
-    return (
-      <div className="window">
-        {this.renderTemplate()}
-        {/* <div className="current" /> */}
-      </div>
-    );
+    return <div className="window maps">{this.renderTemplate()}</div>;
   }
 }
 
-Window.propTypes = {
+CurrentMaps.propTypes = {
   map: PropTypes.array.isRequired
 };
 
-export default Window;
+export default CurrentMaps;

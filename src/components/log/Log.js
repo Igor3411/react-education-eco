@@ -5,7 +5,7 @@ class Log extends React.PureComponent {
   render() {
     return (
       <div className="log">
-        {this.props.arr.map((entry, i) => (
+        {this.props.logList.map((entry, i) => (
           <p key={`log_${i}`}>{entry}</p>
         ))}
       </div>
