@@ -44,6 +44,7 @@ const newPredator = (
     name={name}
     target={targetPredator(animals[name].information.target, animals)}
     key={name}
+    events={world.world.events}
   />
 );
 const newRabbit = (
@@ -60,6 +61,7 @@ const newRabbit = (
     info={animals[name].information}
     name={name}
     key={name}
+    events={world.world.events}
   />
 );
 const animalsListCreate = props =>

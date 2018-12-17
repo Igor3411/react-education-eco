@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import step from "../../utils/logic/rabbitAI";
+import speed from "../../utils/logic/speed";
+import { STANDART_SPEED } from "../../const/const";
 
 class Rabbit extends React.PureComponent {
   componentDidMount() {
     this.timerTick = setInterval(() => {
       step(this.props.info, this.props, this.timerTick);
-    }, 1000);
+    }, STANDART_SPEED * speed(this.props.events, "rab"));
   }
 
   componentWillUnmount() {

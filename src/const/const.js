@@ -13,6 +13,7 @@ export const EAT_LIST = {
   pre: 15
 };
 export const STARVATION = "STARVATION";
+export const STANDART_SPEED = 1000;
 export const SET_MAP = "SET_MAP";
 export const EATING = "EATING";
 export const DEATH = "DEATH";

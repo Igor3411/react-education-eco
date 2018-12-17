@@ -1,13 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import step from "../../utils/logic/predatorAI";
+import speed from "../../utils/logic/speed";
+import { STANDART_SPEED } from "../../const/const";
 
 class Predator extends React.PureComponent {
   componentDidMount() {
     this.timerTick = setInterval(() => {
       step(this.props, this.timerTick);
-    }, 800);
+    }, STANDART_SPEED * speed(this.props.events, "pred"));
   }
+
+  // componentWillMount() {
+  //   this.timerTick = setInterval(() => {
+  //     step(this.props, this.timerTick);
+  //   }, STANDART_SPEED * speed(this.props.events, "pred"));
+  // }
 
   componentWillUnmount() {
     clearInterval(this.timerTick);
