@@ -11,12 +11,6 @@ class Predator extends React.PureComponent {
     }, STANDART_SPEED * speed(this.props.events, "pred"));
   }
 
-  // componentWillMount() {
-  //   this.timerTick = setInterval(() => {
-  //     step(this.props, this.timerTick);
-  //   }, STANDART_SPEED * speed(this.props.events, "pred"));
-  // }
-
   componentWillUnmount() {
     clearInterval(this.timerTick);
   }
