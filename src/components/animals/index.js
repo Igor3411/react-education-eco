@@ -63,7 +63,7 @@ const newRabbit = (
     key={name}
     events={world.world.events}
   />
-);
+); // вынести
 const animalsListCreate = props =>
   Object.entries(props.animals).map(([i]) => {
     switch (true) {

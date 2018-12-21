@@ -4,8 +4,12 @@
   "private": true,
   "dependencies": {
     "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.6",
     "enzyme": "^3.8.0",
+    "enzyme-adapter-react-15": "^1.2.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.6.0",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",
@@ -24,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint --config .eslintrc src/"
