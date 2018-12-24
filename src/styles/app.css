@@ -107,7 +107,6 @@ body {
 }
 
 .window.current div:not(.block) {
-  outline: 0.1px solid gold;
   cursor: pointer;
 }
 
