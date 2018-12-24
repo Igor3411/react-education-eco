@@ -8,43 +8,7 @@ import {
   NEW_ANIMAL
 } from "../const/const";
 
-const initialState = {
-  rabbit_1: {
-    information: {
-      place: [3, 1],
-      satiety: 5,
-      target: undefined
-    }
-  },
-  rabbit_2: {
-    information: {
-      place: [3, 0],
-      satiety: 5,
-      target: undefined
-    }
-  },
-  rabbit_3: {
-    information: {
-      place: [4, 0],
-      satiety: 5,
-      target: undefined
-    }
-  },
-  rabbit_4: {
-    information: {
-      place: [4, 1],
-      satiety: 5,
-      target: undefined
-    }
-  },
-  predator_1: {
-    information: {
-      place: [3, 6],
-      satiety: 12,
-      target: undefined
-    }
-  }
-};
+const initialState = {};
 
 let index = 5;
 

@@ -45,12 +45,14 @@ class Window extends React.PureComponent {
           key={i}
           className={entry}
           onClick={() => {
-            this.newAnBtnClick(
-              currentType,
-              i.toString().length === 2
-                ? [Number(i.toString()[0]), Number(i.toString()[1])]
-                : [0, Number(i.toString()[0])]
-            );
+            if (entry !== " block") {
+              this.newAnBtnClick(
+                currentType,
+                i.toString().length === 2
+                  ? [Number(i.toString()[0]), Number(i.toString()[1])]
+                  : [0, Number(i.toString()[0])]
+              );
+            }
           }}
         />
       ));
