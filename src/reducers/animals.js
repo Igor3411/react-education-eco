@@ -119,13 +119,15 @@ export default function animalsReducer(state = initialState, action) {
       index++;
       return {
         ...state,
-        [action.payload.name + index]: {
-          information: {
-            place: action.payload.place,
-            satiety: EAT_LIST[action.payload.name.slice(0, 3)],
-            target: undefined
+        ...(Object.entries(state).length < 15 && {
+          [action.payload.name + index]: {
+            information: {
+              place: action.payload.place,
+              satiety: EAT_LIST[action.payload.name.slice(0, 3)],
+              target: undefined
+            }
           }
-        }
+        })
       };
 
     default: {

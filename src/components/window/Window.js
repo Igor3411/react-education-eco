@@ -10,26 +10,27 @@ import {
 
 class Window extends React.PureComponent {
   renderTemplate = () => {
-    const { map } = this.props;
+    const { map, current, currentType } = this.props;
     const arr = [];
     for (let y = 0; y < map.length; y++) {
       for (let x = 0; x < map[y].length; x++) {
         let type = "";
         const place = `${map[y][x]}`;
         switch (true) {
+          // eslint-disable-next-line no-fallthrough
           case TILE_EMPTY === place:
             break;
           case TILE_ROCK === place:
             type = " block";
             break;
           case TILE_EAT === place:
-            type = " eat";
+            type += " eat";
             break;
           case TILE_WATER === place:
-            type = " water";
+            type += " water";
             break;
           case TILE_HILL === place:
-            type = " hill";
+            type += " hill";
             break;
           default:
             break;
@@ -37,14 +38,43 @@ class Window extends React.PureComponent {
         arr.push(type);
       }
     }
+    if (current) {
+      return arr.map((entry, i) => (
+        <div
+          id={i}
+          key={i}
+          className={entry}
+          onClick={() => {
+            this.newAnBtnClick(
+              currentType,
+              i.toString().length === 2
+                ? [Number(i.toString()[0]), Number(i.toString()[1])]
+                : [0, Number(i.toString()[0])]
+            );
+          }}
+        />
+      ));
+    }
+
     return arr.map((entry, i) => <div id={i} key={i} className={entry} />);
   };
 
+  newAnBtnClick = (name, place) => {
+    this.props.newAnimal(name, place);
+  };
+
+  closeCurrentBtn = () => {
+    this.props.closeCurrent();
+  };
+
   render() {
+    const current = this.props.current ? "current" : "";
     return (
-      <div className="window">
+      <div className={`window ${current}`}>
         {this.renderTemplate()}
-        {/* <div className="current" /> */}
+        <div className="close_current" onClick={() => this.closeCurrentBtn()}>
+          Закончить добавление
+        </div>
       </div>
     );
   }

@@ -30,7 +30,7 @@ const step = (
       hunger(satiety, starvation, name);
       break;
     case satiety !== 5 && places.center === TILE_EAT:
-      starve(eat, name);
+      starve(eat, name, place);
       break;
     default:
       walk(places, place, go, name);

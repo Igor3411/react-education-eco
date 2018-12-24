@@ -1,4 +1,5 @@
 import pull from "lodash/pull";
+import randomNumber from "../utils/randomNumber";
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -12,8 +13,10 @@ import {
   TEMP_SUCCESS,
   TIME_SUCCESS,
   GO,
-  SET_MAP
-  // EATING
+  SET_MAP,
+  CURRENT_PLACE,
+  CLOSE_CURRENT,
+  EATING
 } from "../const/const";
 import { TILE_EAT, TILE_EMPTY } from "../const/tiles";
 import { MAP_STANDART, MAP_ANIMALS } from "../const/maps";
@@ -37,7 +40,8 @@ const initialState = {
   log: {
     [date + date.getMilliseconds()]: " Запущено"
   },
-  current: undefined
+  current: false,
+  currentType: ""
 };
 
 export default function worldReducer(state = initialState, action) {
@@ -95,8 +99,25 @@ export default function worldReducer(state = initialState, action) {
         }
       };
 
-    // case EATING:
-    //   return { ...state };
+    case EATING:
+      const newMapE = [...state.world.map];
+      const newanimalsLocationDE = [...state.animalsLocation];
+      const c = randomNumber(1, 3);
+      pull(
+        newanimalsLocationDE[action.payload.placeY][action.payload.placeX],
+        action.payload.name
+      );
+      newMapE[action.payload.placeY][action.payload.placeX] =
+        c === 3
+          ? TILE_EMPTY
+          : newMapE[action.payload.placeY][action.payload.placeX];
+      return {
+        ...state,
+        world: {
+          ...state.world,
+          map: newMapE
+        }
+      };
 
     case SET_MAP:
       return {
@@ -167,6 +188,12 @@ export default function worldReducer(state = initialState, action) {
           events: newTemp
         }
       };
+
+    case CURRENT_PLACE:
+      return { ...state, current: true, currentType: action.payload };
+
+    case CLOSE_CURRENT:
+      return { ...state, current: false };
 
     case TIME_SUCCESS:
       const newTime = [

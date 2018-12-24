@@ -1,9 +1,6 @@
-import { configure, shallow } from "enzyme";
 import React from "react";
-import Adapter from "enzyme-adapter-react-16";
+import { shallow } from "enzyme";
 import Rabbit from "../Rabbit";
-
-configure({ adapter: new Adapter() }); // вынести в корень, подключится автоматом
 
 test("RABBIT --- number of animals", () => {
   const places = {

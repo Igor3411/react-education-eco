@@ -27,7 +27,8 @@ class ToolsPanel extends React.Component {
 
   newAnBtnClick = e => {
     const name = e;
-    this.props.newAnimal(name, [2, 0]);
+    // this.props.newAnimal(name, [2, 0]);
+    this.props.currentTile(name);
   };
 
   onChangeHandler = e => {

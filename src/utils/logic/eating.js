@@ -1,5 +1,5 @@
-const eating = (eat, name) => {
-  eat(name);
+const eating = (eat, name, place) => {
+  eat(name, place);
 };
 
 export default eating;

@@ -101,12 +101,52 @@ body {
   box-shadow: 0 0 1em 1em gold;
 }
 
+.window.current {
+  z-index: 100;
+  opacity: 0.7;
+}
+
+.window.current div:not(.block) {
+  outline: 0.1px solid gold;
+  cursor: pointer;
+}
+
+.window .close_current {
+  display: none;
+}
+
+.window.current .close_current {
+  display: flex;
+  position: absolute;
+  width: 210px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(43, 41, 41, 0.8);
+  box-shadow: 0 0 1.8em -0.4em rgba(43, 41, 41, 0.8) !important;
+  align-items: center;
+  justify-content: center;
+  top: -43px;
+  outline: none !important;
+  left: 244px;
+  transition: 0.3s;
+}
+
+.window.current .close_current:hover {
+  background: rgba(43, 41, 41, 0.1);
+}
+
+.window.current div:not(.block):hover {
+  box-shadow: 0 0 1.5em 1em gold;
+  z-index: 100;
+}
+
 .line {
   width: 31px;
   height: 15px;
   background: url(../image/firebog-sign-arrow-1-558146.png) no-repeat;
   background-size: 70%;
 }
+
 .window div.eat {
   background: #8bcc0a url(../image/apple_tree_1466604002-e1466604051290.png);
   background-size: 33%;

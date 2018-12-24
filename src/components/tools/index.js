@@ -7,6 +7,7 @@ import getWorld from "../../actions/server/getWorld";
 import setWorld from "../../actions/server/setWorld";
 import newWorld from "../../actions/server/newWorld";
 import newAnimal from "../../actions/animals/newAnimal";
+import currentTile from "../../actions/animals/currentTile";
 
 const ToolsPanelCreate = ({
   name,
@@ -15,7 +16,8 @@ const ToolsPanelCreate = ({
   getWorldAction,
   setWorldAction,
   newWorldAction,
-  newAnimalAction
+  newAnimalAction,
+  currentTileAction
 }) => (
   <Route
     exact
@@ -29,6 +31,7 @@ const ToolsPanelCreate = ({
         name={name}
         events={events}
         map={map}
+        currentTile={currentTileAction}
       />
     )}
   />
@@ -55,7 +58,8 @@ const mapDispatchToProps = dispatch => ({
   getWorldAction: name => dispatch(getWorld(name)),
   setWorldAction: (name, map, events) => dispatch(setWorld(name, map, events)),
   newWorldAction: name => dispatch(newWorld(name)),
-  newAnimalAction: (name, place) => dispatch(newAnimal(name, place))
+  newAnimalAction: (name, place) => dispatch(newAnimal(name, place)),
+  currentTileAction: (name, place) => dispatch(currentTile(name, place))
 });
 
 export default connect(
