@@ -102,7 +102,7 @@ export default function worldReducer(state = initialState, action) {
     case EATING:
       const newMapE = [...state.world.map];
       const newanimalsLocationDE = [...state.animalsLocation];
-      const c = randomNumber(1, 3);
+      const c = randomNumber(1, 4);
       pull(
         newanimalsLocationDE[action.payload.placeY][action.payload.placeX],
         action.payload.name

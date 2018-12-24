@@ -19,7 +19,7 @@ const step = (
       places.animals.filter(animal => animal !== name)[0].slice(0, 3) ===
         "rab" &&
       satiety > 0 &&
-      getRandomInRange(1, 4) === 1:
+      getRandomInRange(1, 3) === 1:
       newAnimal("rabbit_", place);
       hunger(satiety, starvation, name);
       hunger(satiety, starvation, name);
